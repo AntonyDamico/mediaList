@@ -2,14 +2,13 @@ import ListService from '../services/ListService';
 
 class ListController {
 
-    static showList(req, res) {
+    static async showList(req, res) {
         if (!ListController.isValidReq(req))
             res.status(404).send({message: 'fix the url'});
 
         const mediaType = req.params.media;
-
-        ListService.getAll(mediaType, 1)
-            .then(data => res.status(202).send({data}));
+        const data = await ListService.getAll(mediaType, 1);
+        res.status(200).send({data})
     }
 
 
