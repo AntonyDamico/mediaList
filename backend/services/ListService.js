@@ -1,9 +1,12 @@
 class ListService {
 
     static getAll(media, userId) {
-        const sql = `select * from movie 
-                        inner join movie_watch_list on movie_watch_list.movie_id = movie.id 
-                        where user_id = 1 `;
+        const names = ListService.buildQueryNames(media);
+        const sql = `select movie_id, title, language, poster
+                        vote_average, release_date from ${names.fullMediaName} 
+                        inner join ${names.listTableName} on 
+                        ${names.listTableName}.${media}_id = ${names.fullMediaName}.id 
+                        where user_id = ${userId}`;
 
         return new Promise((resolve, reject) => {
             connection.query(sql, (err, res) => {
@@ -13,15 +16,25 @@ class ListService {
         });
     }
 
-    static insert(mediaType, userId, movieId) {
-        const sql = `insert into movie_watch_list (movie_id, user_id) values (${movieId}, ${userId});`
+    static insert(media, userId, mediaId) {
+        const names = ListService.buildQueryNames(media);
+        const sql = `insert into ${names.listTableName} 
+                      (${media}_id, user_id) values (${mediaId}, ${userId});`;
 
         return new Promise(((resolve, reject) => {
             connection.query(sql, (err, res) => {
-                if(err) return reject(err);
+                if (err) return reject(err);
                 resolve(res);
             })
         }))
+    }
+
+
+
+    static buildQueryNames(media) {
+        let fullMediaName = media === 'show' ? 'tv_' + media : media;
+        let listTableName = media + '_watch_list';
+        return {fullMediaName, listTableName};
     }
 }
 
