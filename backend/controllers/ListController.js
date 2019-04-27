@@ -15,10 +15,13 @@ class ListController {
         if(!ListController.isValidReq(req))
             res.status(404).send({message: 'fix the url'});
 
-        const mediaType = req.params.media;
-        const movieId = req.body.movie_id;
-        await ListService.insert(mediaType, 1, movieId);
-        res.status(200).send({message: `movie with id:${movieId} added to list`});
+
+        await ListService.insert(
+            req.params.media,
+            1,
+            req.body.media_id
+        );
+        res.status(200).send({message: `Object with added to list`});
     }
 
 
