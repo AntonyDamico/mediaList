@@ -12,6 +12,17 @@ class ListService {
             })
         });
     }
+
+    static insert(mediaType, userId, movieId) {
+        const sql = `insert into movie_watch_list (movie_id, user_id) values (${movieId}, ${userId});`
+
+        return new Promise(((resolve, reject) => {
+            connection.query(sql, (err, res) => {
+                if(err) return reject(err);
+                resolve(res);
+            })
+        }))
+    }
 }
 
 export default ListService;
