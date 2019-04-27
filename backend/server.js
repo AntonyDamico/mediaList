@@ -2,6 +2,8 @@ import express from 'express';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
 
+import {homeRouter} from './routes/index';
+
 const app = express();
 
 dotenv.config();
@@ -19,9 +21,12 @@ connection.connect(err => {
 global.connection = connection;
 
 
-app.get('', (req, res) =>{
-    res.send('it\'s working');
-});
+app.use(express.json());
+app.use('/', homeRouter);
+
+// app.get('', (req, res) =>{
+//     res.send('it\'s working');
+// });
 
 
 app.listen(3000, () =>{
