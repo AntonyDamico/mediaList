@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
+import * as Promise from 'bluebird';
+
 
 import {homeRouter, movieDbRoutes, listRoutes} from './routes/index';
 
@@ -23,6 +25,7 @@ const connection = mysql.createConnection({
 connection.connect(err => {
     if (err) throw err;
 });
+Promise.promisifyAll(connection);
 global.connection = connection;
 
 

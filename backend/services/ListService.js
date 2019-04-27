@@ -8,12 +8,9 @@ class ListService {
                         ${names.listTableName}.${media}_id = ${names.fullMediaName}.id 
                         where user_id = ${userId}`;
 
-        return new Promise((resolve, reject) => {
-            connection.query(sql, (err, res) => {
-                if (err) return reject(err);
-                resolve(res)
-            })
-        });
+        return connection.queryAsync(sql)
+            .catch(err => console.log(err.sqlMessage));
+
     }
 
     static insert(media, userId, mediaId) {
@@ -21,12 +18,8 @@ class ListService {
         const sql = `insert into ${names.listTableName} 
                       (${media}_id, user_id) values (${mediaId}, ${userId});`;
 
-        return new Promise(((resolve, reject) => {
-            connection.query(sql, (err, res) => {
-                if (err) return reject(err);
-                resolve(res);
-            })
-        }))
+        return connection.queryAsync(sql)
+            .catch(err => console.log(err.sqlMessage));
     }
 
 
