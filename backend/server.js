@@ -4,7 +4,7 @@ import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
 
-import {homeRouter, movieDbRoutes} from './routes/index';
+import {homeRouter, movieDbRoutes, listRoutes} from './routes/index';
 
 const app = express();
 
@@ -29,7 +29,7 @@ global.connection = connection;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/', homeRouter);
-app.use('/api', movieDbRoutes);
+app.use('/api', movieDbRoutes, listRoutes);
 
 
 app.listen(3000, () =>{
