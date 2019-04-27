@@ -22,6 +22,14 @@ class ListService {
             .catch(err => console.log(err.sqlMessage));
     }
 
+    static delete(media, userId, mediaId) {
+        const names = ListService.buildQueryNames(media);
+        const sql = `delete from ${names.listTableName} 
+                     where user_id = ${userId} and ${media}_id = ${mediaId}`
+
+        return connection.queryAsync(sql)
+            .catch(err => console.log(err.sqlMessage));
+    }
 
 
     static buildQueryNames(media) {

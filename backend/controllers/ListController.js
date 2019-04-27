@@ -12,16 +12,27 @@ class ListController {
     }
 
     static async addToList(req, res) {
-        if(!ListController.isValidReq(req))
+        if (!ListController.isValidReq(req))
             res.status(404).send({message: 'fix the url'});
-
 
         await ListService.insert(
             req.params.media,
             1,
             req.body.media_id
         );
-        res.status(200).send({message: `Object with added to list`});
+        res.status(200).send({message: `Object added to list`});
+    }
+
+    static async removeFromList(req, res) {
+        if (!ListController.isValidReq(req))
+            res.status(404).send({message: 'fix the url'});
+
+        await ListService.delete(
+            req.params.media,
+            1,
+            req.body.media_id
+        );
+        res.status(200).send({message: `Object removed from list`});
     }
 
 
