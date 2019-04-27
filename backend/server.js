@@ -1,10 +1,14 @@
 import express from 'express';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
+import MovieDb from 'moviedb';
 
 import {homeRouter} from './routes/index';
 
 const app = express();
+
+const mdb = MovieDb('eee69ce6312e1412776d537fb8aad84f');
+global.mdb = mdb;
 
 dotenv.config();
 
@@ -23,10 +27,6 @@ global.connection = connection;
 
 app.use(express.json());
 app.use('/', homeRouter);
-
-// app.get('', (req, res) =>{
-//     res.send('it\'s working');
-// });
 
 
 app.listen(3000, () =>{
