@@ -1,9 +1,10 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
 
-import {homeRouter} from './routes/index';
+import {homeRouter, movieDbRoutes} from './routes/index';
 
 const app = express();
 
@@ -25,8 +26,10 @@ connection.connect(err => {
 global.connection = connection;
 
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use('/', homeRouter);
+app.use('/api', movieDbRoutes);
 
 
 app.listen(3000, () =>{
