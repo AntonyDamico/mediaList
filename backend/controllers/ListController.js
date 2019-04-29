@@ -2,16 +2,42 @@ import ListService from '../services/ListService';
 
 class ListController {
 
-    static showList(req, res) {
+    static async showList(req, res) {
+        if (!ListController.isValidReq(req))
+            res.status(404).send({message: 'fix the url'});
+
         const mediaType = req.params.media;
+        const data = await ListService.getAll(mediaType, 1);
+        res.status(200).send({data})
+    }
 
-        if (!['movie', 'show'].includes(mediaType)) {
-            res.status(404).send({message: 'fix the url'})
-        }
+    static async addToList(req, res) {
+        if (!ListController.isValidReq(req))
+            res.status(404).send({message: 'fix the url'});
 
-        ListService.getAll(mediaType, 1, dbRes => {
-            res.status(202).send({data: dbRes});
-        })
+        await ListService.insert(
+            req.params.media,
+            1,
+            req.body.media_id
+        );
+        res.status(200).send({message: `Object added to list`});
+    }
+
+    static async removeFromList(req, res) {
+        if (!ListController.isValidReq(req))
+            res.status(404).send({message: 'fix the url'});
+
+        await ListService.delete(
+            req.params.media,
+            1,
+            req.body.media_id
+        );
+        res.status(200).send({message: `Object removed from list`});
+    }
+
+
+    static isValidReq(req) {
+        return ['movie', 'show'].includes(req.params.media)
     }
 }
 

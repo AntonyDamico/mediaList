@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
+import * as Promise from 'bluebird';
 
 import {homeRouter, movieDbRoutes, listRoutes} from './routes/index';
 
@@ -23,16 +24,18 @@ const connection = mysql.createConnection({
 connection.connect(err => {
     if (err) throw err;
 });
+Promise.promisifyAll(connection);
 global.connection = connection;
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/', homeRouter);
-app.use('/api', movieDbRoutes, listRoutes);
+app.use('/api', movieDbRoutes);
+app.use('/api/list', listRoutes);
 
 
-app.listen(3000, () =>{
+app.listen(3000, () => {
     console.log('listening in port 3000')
 });
 
