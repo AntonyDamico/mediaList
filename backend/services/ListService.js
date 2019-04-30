@@ -20,28 +20,24 @@ class ListService {
     }
 
     static delete(media, userId, mediaId) {
-        //     const sql = ListService.buildDeleteQuery(media, userId, mediaId);
-        //     return connection.queryAsync(sql)
-        //         .catch(err => console.log(err.sqlMessage));
+        const tableName = ListService.buildTableName(media);
+        const whereObj = ListService.getOperationsObj(media, userId, mediaId);
+        return knex(tableName)
+            .where(whereObj).del();
     }
 
     static buildTableName(media) {
         return media + '_watch_list';
     }
 
+    static getOperationsObj(media, userId, mediaId) {
+        return {
+            user_id: userId,
+            [media + '_id']: mediaId
+        }
+    }
+
 }
 
-
-// class ListService {
-//
-//     static buildDeleteQuery(media, userId, mediaId) {
-//         const tableName = ListService.buildTableName(media);
-//         return `delete from ${tableName}
-//                      where user_id = ${userId} and ${media}_id = ${mediaId}`;
-//     }
-//
-//
-//
-// }
 
 export default ListService;
