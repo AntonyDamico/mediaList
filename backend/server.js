@@ -4,6 +4,7 @@ import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
 import * as Promise from 'bluebird';
+import Knex from 'knex';
 
 import {homeRouter, movieDbRoutes, listRoutes, userMediaActionsRoutes} from './routes/index';
 
@@ -26,6 +27,18 @@ connection.connect(err => {
 });
 Promise.promisifyAll(connection);
 global.connection = connection;
+
+
+const knex = Knex({
+    client: 'mysql',
+    connection: {
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
+    }
+});
+global.knex = knex;
 
 
 app.use(bodyParser.urlencoded({extended: false}));
