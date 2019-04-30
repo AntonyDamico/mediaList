@@ -1,9 +1,12 @@
 class UserMediaActionsService {
 
     static getFavorites(media, userId) {
-        const sql = `SELECT * FROM favorite_movies WHERE user_id = ${userId}`;
-        return connection.queryAsync(sql)
-            .catch(err => console.log(err.sqlMessage));
+        const tableName = 'favorite_' + media + 's';
+        const mediaName = media === 'show' ? 'tv_' + media : media;
+
+        return knex(tableName)
+            .innerJoin(mediaName, `${mediaName}.id`, '=', `${tableName}.${mediaName}_id`)
+            .where('user_id', userId);
     }
 
 
