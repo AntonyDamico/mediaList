@@ -5,5 +5,6 @@ const router = express.Router();
 
 
 router.get('/:media/favorites', UserMediaActionsController.getFavorites);
+router.post('/:media/favorites/add', UserMediaActionsController.addToFavorites);
 
 export default router;

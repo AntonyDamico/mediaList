@@ -1,18 +1,23 @@
 import UserMediaActionsService from '../services/UserMediaActionsService';
-import Response from '../core/Responses';
+import Responses from '../core/Responses';
 
 class UserMediaActionsController {
 
     static async getFavorites(req, res) {
         const media = req.params.media;
         const data = await UserMediaActionsService.getFavorites(media, 1)
-            .catch(error => Response.failed(res, error, 'Something went wrong'));
-        Response.successful(res, data);
+            .catch(error => Responses.failed(res, error, 'Something went wrong'));
+        Responses.successful(res, data);
     }
 
     static async addToFavorites(req, res) {
-        const media = req.params.media;
+        await UserMediaActionsService.addToFavorite(
+            req.params.media,
+            1,
+            req.body.media_id
+        ).catch(err => Responses.failed(res, err));
 
+        Responses.successful(res)
     }
 }
 

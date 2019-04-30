@@ -1,19 +1,26 @@
 class UserMediaActionsService {
 
     static getFavorites(media, userId) {
-        const tableName = 'favorite_' + media + 's';
+        const tableName = UserMediaActionsService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;
 
         return knex(tableName)
-            .innerJoin(mediaName, `${mediaName}.id`, '=', `${tableName}.${mediaName}_id`)
+            .innerJoin(mediaName, `${mediaName}.id`, '=', `${tableName}.${media}_id`)
             .where('user_id', userId);
     }
 
 
     static addToFavorite(media, userId, mediaId) {
-        const sql = `SELECT * FROM favorite_movies where user_id = ${userId}`;
-        return connection.queryAsync(sql)
-            .catch(err => console.log(err.sqlMessage));
+        const tableName = UserMediaActionsService.buildTableName(media);
+        const insertObj = {
+            user_id: userId,
+            [media + '_id']: mediaId
+        };
+        return knex(tableName).insert(insertObj);
+    }
+
+    static buildTableName(media) {
+        return 'favorite_' + media + 's';
     }
 }
 

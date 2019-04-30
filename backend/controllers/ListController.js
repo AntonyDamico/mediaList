@@ -25,7 +25,7 @@ class ListController {
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
-        Responses.successful(res, data)
+        Responses.successful(res)
     }
 
 
@@ -39,7 +39,7 @@ class ListController {
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
-        Responses.successful(res, data)
+        Responses.successful(res)
     }
 
 
