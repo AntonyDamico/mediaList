@@ -6,10 +6,14 @@ class ListService {
             .catch(err => console.log(err.sqlMessage));
     }
 
-    static insert(media, userId, mediaId) {
-        const sql = ListQueryBuilder.buildUpdateQuery(media, userId, mediaId);
-        return connection.queryAsync(sql)
-            .catch(err => console.log(err.sqlMessage));
+    static insert(media, user_id, mediaId) {
+        const insertObj = {
+            user_id,
+            [media + '_id']: mediaId
+        };
+        return knex(ListQueryBuilder.buildTableName(media))
+            .insert(insertObj)
+            .catch(err => console.log(err))
     }
 
     static delete(media, userId, mediaId) {
@@ -31,12 +35,6 @@ class ListQueryBuilder {
                         inner join ${tableName} on 
                         ${tableName}.${media}_id = ${fullMediaName}.id 
                         where user_id = ${userId}`;
-    }
-
-    static buildUpdateQuery(media, userId, mediaId) {
-        const tableName = ListQueryBuilder.buildTableName(media);
-        return `insert into ${tableName} 
-                      (${media}_id, user_id) values (${mediaId}, ${userId});`;
     }
 
     static buildDeleteQuery(media, userId, mediaId) {
