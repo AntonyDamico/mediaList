@@ -1,5 +1,9 @@
 class ListService {
 
+    /**
+     * TODO: Search why can't you use instance variables in knex
+     */
+
     static getAll(media, userId) {
         const tableName = ListService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;
