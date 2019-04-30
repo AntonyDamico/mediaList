@@ -1,18 +1,17 @@
 import ListService from '../services/ListService';
+import Responses from '../core/Responses'
 
 class ListController {
 
     static async showList(req, res) {
         if (!ListController.isValidReq(req))
-            res.status(404).send({message: 'fix the url'});
+            Responses.failedResponse(res, 'fix the url');
 
         const mediaType = req.params.media;
         const data = await ListService.getAll(mediaType, 1)
-            .catch(error => {
-                console.log(error);
-                res.status(404).send({message: 'Something went wrong'})
-            });
-        res.status(200).send({data})
+            .catch(err => Responses.failedResponse(res, err));
+
+        Responses.successfulResponse(res, data)
     }
 
 
