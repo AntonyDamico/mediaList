@@ -7,9 +7,14 @@ class ListController {
             res.status(404).send({message: 'fix the url'});
 
         const mediaType = req.params.media;
-        const data = await ListService.getAll(mediaType, 1);
+        const data = await ListService.getAll(mediaType, 1)
+            .catch(error => {
+                console.log(error);
+                res.status(404).send({message: 'Something went wrong'})
+            });
         res.status(200).send({data})
     }
+
 
     static async addToList(req, res) {
         if (!ListController.isValidReq(req))
@@ -19,9 +24,14 @@ class ListController {
             req.params.media,
             1,
             req.body.media_id
-        );
+        ).catch(error => {
+            console.log(error);
+            res.status(404).send({message: 'Something went wrong'})
+        });
+
         res.status(200).send({message: `Object added to list`});
     }
+
 
     static async removeFromList(req, res) {
         if (!ListController.isValidReq(req))
@@ -31,7 +41,10 @@ class ListController {
             req.params.media,
             1,
             req.body.media_id
-        );
+        ).catch(error => {
+            console.log(error);
+            res.status(404).send({message: 'Something went wrong'})
+        });
         res.status(200).send({message: `Object removed from list`});
     }
 
