@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
 import * as Promise from 'bluebird';
 
-import {homeRouter, movieDbRoutes, listRoutes} from './routes/index';
+import {homeRouter, movieDbRoutes, listRoutes, userMediaActionsRoutes} from './routes/index';
 
 const app = express();
 
@@ -31,7 +31,7 @@ global.connection = connection;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/', homeRouter);
-app.use('/api', movieDbRoutes);
+app.use('/api', movieDbRoutes, userMediaActionsRoutes);
 app.use('/api/list', listRoutes);
 
 
