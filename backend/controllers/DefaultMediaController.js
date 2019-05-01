@@ -1,11 +1,10 @@
 import ListService from '../services/ListService';
 import Responses from '../core/Responses'
 
-class ListController {
+class DefaultMediaController {
 
     static async read(req, res, Service) {
-        if (!ListController.isValidReq(req))
-            Responses.failed(res, 'fix the url');
+        DefaultMediaController.checkValidReq(req, res);
 
         const mediaType = req.params.media;
         const data = await Service.getAll(mediaType, 1)
@@ -16,8 +15,7 @@ class ListController {
 
 
     static async create(req, res) {
-        if (!ListController.isValidReq(req))
-            Responses.failed(res, 'fix the url');
+        DefaultMediaController.checkValidReq(req, res);
 
         await ListService.insert(
             req.params.media,
@@ -30,8 +28,7 @@ class ListController {
 
 
     static async delete(req, res) {
-        if (!ListController.isValidReq(req))
-            Responses.failed(res, 'fix the url');
+        DefaultMediaController.checkValidReq(req, res);
 
         await ListService.delete(
             req.params.media,
@@ -43,9 +40,14 @@ class ListController {
     }
 
 
+    static checkValidReq(req, res) {
+        if (!DefaultMediaController.isValidReq(req))
+            Responses.failed(res, null, 'fix the url');
+    }
+
     static isValidReq(req) {
         return ['movie', 'show'].includes(req.params.media)
     }
 }
 
-export default ListController;
+export default DefaultMediaController;
