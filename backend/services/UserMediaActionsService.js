@@ -12,15 +12,27 @@ class UserMediaActionsService {
 
     static addToFavorite(media, userId, mediaId) {
         const tableName = UserMediaActionsService.buildTableName(media);
-        const insertObj = {
-            user_id: userId,
-            [media + '_id']: mediaId
-        };
+        const insertObj = UserMediaActionsService.getOperationsObj(media, userId, mediaId);
         return knex(tableName).insert(insertObj);
+    }
+
+
+    static removeFromFavorites(media, userId, mediaId) {
+        const tableName = UserMediaActionsService.buildTableName(media);
+        const whereObj = UserMediaActionsService.getOperationsObj(media, userId, mediaId);
+        return knex(tableName)
+            .where(whereObj).del();
     }
 
     static buildTableName(media) {
         return 'favorite_' + media + 's';
+    }
+
+    static getOperationsObj(media, userId, mediaId) {
+        return {
+            user_id: userId,
+            [media + '_id']: mediaId
+        };
     }
 }
 

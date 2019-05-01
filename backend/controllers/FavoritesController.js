@@ -1,7 +1,7 @@
 import UserMediaActionsService from '../services/UserMediaActionsService';
 import Responses from '../core/Responses';
 
-class UserMediaActionsController {
+class FavoritesController {
 
     static async getFavorites(req, res) {
         const media = req.params.media;
@@ -19,6 +19,16 @@ class UserMediaActionsController {
 
         Responses.successful(res)
     }
+
+    static async removeFromFavorites(req, res) {
+        await UserMediaActionsService.removeFromFavorites(
+            req.params.media,
+            1,
+            req.body.media_id
+        ).catch(err => Responses.failed(res, err));
+
+        Responses.successful(res)
+    }
 }
 
-export default UserMediaActionsController
+export default FavoritesController
