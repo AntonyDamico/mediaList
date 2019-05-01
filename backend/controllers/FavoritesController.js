@@ -1,5 +1,4 @@
 import FavoritesService from '../services/FavoritesService';
-import Responses from '../core/Responses';
 import DefaultController from './DefaultMediaController';
 
 
@@ -14,13 +13,7 @@ class FavoritesController {
     }
 
     static async remove(req, res) {
-        await FavoritesService.removeFromFavorites(
-            req.params.media,
-            1,
-            req.body.media_id
-        ).catch(err => Responses.failed(res, err));
-
-        Responses.successful(res)
+        await DefaultController.delete(req, res, FavoritesService)
     }
 }
 

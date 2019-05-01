@@ -1,4 +1,3 @@
-import ListService from '../services/ListService';
 import Responses from '../core/Responses'
 
 class DefaultMediaController {
@@ -27,10 +26,10 @@ class DefaultMediaController {
     }
 
 
-    static async delete(req, res) {
+    static async delete(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
-        await ListService.delete(
+        await Service.delete(
             req.params.media,
             1,
             req.body.media_id
