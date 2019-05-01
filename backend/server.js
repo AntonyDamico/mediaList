@@ -5,7 +5,10 @@ import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
 import Knex from 'knex';
 
-import {homeRouter, movieDbRoutes, listRoutes, favoriteRoutes} from './routes/index';
+import {
+    homeRouter, movieDbRoutes, listRoutes, favoriteRoutes,
+    ratingRoutes
+} from './routes/index';
 
 const app = express();
 
@@ -43,7 +46,7 @@ global.knex = knex;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/', homeRouter);
-app.use('/api', movieDbRoutes, favoriteRoutes);
+app.use('/api', movieDbRoutes, favoriteRoutes, ratingRoutes);
 app.use('/api/list', listRoutes);
 
 
