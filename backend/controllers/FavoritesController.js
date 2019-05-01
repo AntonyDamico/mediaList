@@ -1,13 +1,12 @@
 import UserMediaActionsService from '../services/UserMediaActionsService';
 import Responses from '../core/Responses';
+import DefaultController from './DefaultMediaController';
+
 
 class FavoritesController {
 
     static async getAll(req, res) {
-        const media = req.params.media;
-        const data = await UserMediaActionsService.getFavorites(media, 1)
-            .catch(error => Responses.failed(res, error, 'Something went wrong'));
-        Responses.successful(res, data);
+        await DefaultController.read(req, res, UserMediaActionsService)
     }
 
     static async add(req, res) {

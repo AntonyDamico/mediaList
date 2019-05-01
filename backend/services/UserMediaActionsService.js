@@ -1,6 +1,6 @@
 class UserMediaActionsService {
 
-    static getFavorites(media, userId) {
+    static getAll(media, userId) {
         const tableName = UserMediaActionsService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;
 

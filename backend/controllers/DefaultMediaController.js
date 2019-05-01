@@ -1,15 +1,21 @@
 import ListService from '../services/ListService';
 import Responses from '../core/Responses'
-import DefaultController from './DefaultMediaController';
 
 class ListController {
 
-    static async showList(req, res) {
-        await DefaultController.read(req, res, ListService)
+    static async read(req, res, Service) {
+        if (!ListController.isValidReq(req))
+            Responses.failed(res, 'fix the url');
+
+        const mediaType = req.params.media;
+        const data = await Service.getAll(mediaType, 1)
+            .catch(err => Responses.failed(res, err));
+
+        Responses.successful(res, data)
     }
 
 
-    static async addToList(req, res) {
+    static async create(req, res) {
         if (!ListController.isValidReq(req))
             Responses.failed(res, 'fix the url');
 
@@ -23,7 +29,7 @@ class ListController {
     }
 
 
-    static async removeFromList(req, res) {
+    static async delete(req, res) {
         if (!ListController.isValidReq(req))
             Responses.failed(res, 'fix the url');
 
