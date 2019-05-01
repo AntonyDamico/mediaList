@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import mysql from 'mysql';
 import dotenv from 'dotenv';
 import MovieDb from 'moviedb';
-import * as Promise from 'bluebird';
 import Knex from 'knex';
 
 import {homeRouter, movieDbRoutes, listRoutes, favoriteRoutes} from './routes/index';
@@ -15,18 +14,18 @@ global.mdb = mdb;
 
 dotenv.config();
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-});
-
-connection.connect(err => {
-    if (err) throw err;
-});
-Promise.promisifyAll(connection);
-global.connection = connection;
+// ``const connection = mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_NAME
+// });
+//
+// connection.connect(err => {
+//     if (err) throw err;
+// });
+// Promise.promisifyAll(connection);
+// global.connection = connection;``
 
 
 const knex = Knex({
