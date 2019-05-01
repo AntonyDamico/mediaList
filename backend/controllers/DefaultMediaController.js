@@ -14,16 +14,16 @@ class DefaultMediaController {
     }
 
 
-    static async create(req, res) {
+    static async create(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
-        await ListService.insert(
+        const data = await Service.insert(
             req.params.media,
             1,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
-        Responses.successful(res)
+        Responses.successful(res, data)
     }
 
 

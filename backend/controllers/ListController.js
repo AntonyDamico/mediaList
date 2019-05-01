@@ -10,16 +10,7 @@ class ListController {
 
 
     static async addToList(req, res) {
-        if (!ListController.isValidReq(req))
-            Responses.failed(res, 'fix the url');
-
-        await ListService.insert(
-            req.params.media,
-            1,
-            req.body.media_id
-        ).catch(err => Responses.failed(res, err));
-
-        Responses.successful(res)
+        await DefaultController.create(req, res, ListService)
     }
 
 
@@ -27,13 +18,13 @@ class ListController {
         if (!ListController.isValidReq(req))
             Responses.failed(res, 'fix the url');
 
-        await ListService.delete(
+        const data = await ListService.delete(
             req.params.media,
             1,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
-        Responses.successful(res)
+        Responses.successful(res, data)
     }
 
 

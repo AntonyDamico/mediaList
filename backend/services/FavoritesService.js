@@ -1,7 +1,7 @@
-class UserMediaActionsService {
+class FavoritesService {
 
     static getAll(media, userId) {
-        const tableName = UserMediaActionsService.buildTableName(media);
+        const tableName = FavoritesService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;
 
         return knex(tableName)
@@ -10,16 +10,16 @@ class UserMediaActionsService {
     }
 
 
-    static addToFavorite(media, userId, mediaId) {
-        const tableName = UserMediaActionsService.buildTableName(media);
-        const insertObj = UserMediaActionsService.getOperationsObj(media, userId, mediaId);
+    static insert(media, userId, mediaId) {
+        const tableName = FavoritesService.buildTableName(media);
+        const insertObj = FavoritesService.getOperationsObj(media, userId, mediaId);
         return knex(tableName).insert(insertObj);
     }
 
 
-    static removeFromFavorites(media, userId, mediaId) {
-        const tableName = UserMediaActionsService.buildTableName(media);
-        const whereObj = UserMediaActionsService.getOperationsObj(media, userId, mediaId);
+    static delete(media, userId, mediaId) {
+        const tableName = FavoritesService.buildTableName(media);
+        const whereObj = FavoritesService.getOperationsObj(media, userId, mediaId);
         return knex(tableName)
             .where(whereObj).del();
     }
@@ -36,4 +36,4 @@ class UserMediaActionsService {
     }
 }
 
-export default UserMediaActionsService;
+export default FavoritesService;
