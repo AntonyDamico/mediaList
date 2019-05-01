@@ -6,7 +6,7 @@ import MovieDb from 'moviedb';
 import * as Promise from 'bluebird';
 import Knex from 'knex';
 
-import {homeRouter, movieDbRoutes, listRoutes, userMediaActionsRoutes} from './routes/index';
+import {homeRouter, movieDbRoutes, listRoutes, favoriteRoutes} from './routes/index';
 
 const app = express();
 
@@ -44,7 +44,7 @@ global.knex = knex;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/', homeRouter);
-app.use('/api', movieDbRoutes, userMediaActionsRoutes);
+app.use('/api', movieDbRoutes, favoriteRoutes);
 app.use('/api/list', listRoutes);
 
 

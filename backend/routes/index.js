@@ -1,8 +1,8 @@
 import homeRouter from './homeRoutes';
 import movieDbRoutes from './movieDbRoutes';
 import listRoutes from './listRoutes';
-import userMediaActionsRoutes from './userMediaActionsRoutes';
+import favoriteRoutes from './favoriteRoutes';
 
 export {
-    homeRouter, movieDbRoutes, listRoutes, userMediaActionsRoutes
+    homeRouter, movieDbRoutes, listRoutes, favoriteRoutes
 }

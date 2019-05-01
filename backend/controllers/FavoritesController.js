@@ -3,14 +3,14 @@ import Responses from '../core/Responses';
 
 class FavoritesController {
 
-    static async getFavorites(req, res) {
+    static async getAll(req, res) {
         const media = req.params.media;
         const data = await UserMediaActionsService.getFavorites(media, 1)
             .catch(error => Responses.failed(res, error, 'Something went wrong'));
         Responses.successful(res, data);
     }
 
-    static async addToFavorites(req, res) {
+    static async add(req, res) {
         await UserMediaActionsService.addToFavorite(
             req.params.media,
             1,
@@ -20,7 +20,7 @@ class FavoritesController {
         Responses.successful(res)
     }
 
-    static async removeFromFavorites(req, res) {
+    static async remove(req, res) {
         await UserMediaActionsService.removeFromFavorites(
             req.params.media,
             1,
