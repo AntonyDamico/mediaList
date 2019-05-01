@@ -1,33 +1,19 @@
-import UserMediaActionsService from '../services/UserMediaActionsService';
-import Responses from '../core/Responses';
+import FavoritesService from '../services/FavoritesService';
+import DefaultController from './DefaultMediaController';
+
 
 class FavoritesController {
 
     static async getAll(req, res) {
-        const media = req.params.media;
-        const data = await UserMediaActionsService.getFavorites(media, 1)
-            .catch(error => Responses.failed(res, error, 'Something went wrong'));
-        Responses.successful(res, data);
+        await DefaultController.read(req, res, FavoritesService)
     }
 
     static async add(req, res) {
-        await UserMediaActionsService.addToFavorite(
-            req.params.media,
-            1,
-            req.body.media_id
-        ).catch(err => Responses.failed(res, err));
-
-        Responses.successful(res)
+        await DefaultController.create(req, res, FavoritesService)
     }
 
     static async remove(req, res) {
-        await UserMediaActionsService.removeFromFavorites(
-            req.params.media,
-            1,
-            req.body.media_id
-        ).catch(err => Responses.failed(res, err));
-
-        Responses.successful(res)
+        await DefaultController.delete(req, res, FavoritesService)
     }
 }
 
