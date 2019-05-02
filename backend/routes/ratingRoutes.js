@@ -10,7 +10,9 @@ router.get('/:media/rating', (req, res) => {
     DefaultController.read(req, res, RatingService)
 });
 
-router.get('/:media/rating/:id');
+router.get('/:media/rating/:id', (req, res) => {
+    DefaultController.getById(req, res, RatingService)
+});
 
 router.post('/:media/rating/add', RatingController.create);
 

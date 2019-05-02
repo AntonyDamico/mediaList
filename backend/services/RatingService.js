@@ -9,6 +9,13 @@ class RatingService {
             .where('user_id', userId);
     }
 
+    static getById(media, mediaId, userId) {
+        const mediaName = media === 'show' ? 'tv_' + media : media;
+        return RatingService.getAll(media, userId)
+            .where(`${mediaName}_id`, mediaId)
+    }
+
+
     static insert(media, user_id, mediaId, rating) {
         const insertObj = {
             user_id,

@@ -13,6 +13,18 @@ class DefaultMediaController {
     }
 
 
+    static async getById(req, res, Service) {
+        DefaultMediaController.checkValidReq(req, res);
+
+        const mediaType = req.params.media;
+        const mediaId = req.params.id;
+        const data = await Service.getById(mediaType, mediaId, 1,)
+            .catch(err => Responses.failed(res, err));
+
+        Responses.successful(res, data)
+    }
+
+
     static async create(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
