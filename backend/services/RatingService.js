@@ -9,10 +9,11 @@ class RatingService {
             .where('user_id', userId);
     }
 
-    static insert(media, user_id, mediaId) {
+    static insert(media, user_id, mediaId, rating) {
         const insertObj = {
             user_id,
-            [media + '_id']: mediaId
+            [media + '_id']: mediaId,
+            rating
         };
 
         return knex(RatingService.buildTableName(media))
