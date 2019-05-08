@@ -23,23 +23,21 @@
     user-select: none;
 }
 
-.panel-content {
-    overflow: hidden;
-    display: none;
-    transition: 0.2s;
-}
-
 .panel-items-container ul li {
-    padding-left: 40px;
+    padding-left: 10px;
     margin: 5px 0px;
 }
 
+li a{
+    width: 100%;
+}
+
 .panel-items-clas {
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .panel-items-clas img {
-    width: 20px;
+    width: 15px;
 }
 
 .content {

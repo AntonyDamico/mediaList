@@ -23,18 +23,30 @@
 
 .movie-title {
     font-size: 50px;
-    margin-bottom: 40px;
 }
 
 .movie-description {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
-ul{
+.button{
+    width: 100%;
+    background: var(--color1);
+    padding: 10px;
+}
+.button-info {
+    width: 100%;
+    padding: 10px;
+    background: #171717;
+    overflow: hidden;
+    display: none;
+}
+.box-button{
+    width: 50%;
+    border: 1px solid;
+    border-color: black;
+}
+.details-container{
     display: flex;
     flex-wrap: wrap;
-}
-li{
-    width: 50%;
-    padding: 10px;
 }
