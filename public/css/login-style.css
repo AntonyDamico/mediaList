@@ -1,0 +1,51 @@
+.father-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.login-container {
+    background: var(--color1);
+    width: 600px;
+    padding: 40px;
+}
+
+.login-title-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-title {
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+}
+
+.sub-title{
+    font-size: 15px;
+    margin: 10px 0px;
+}
+
+form input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    padding: 5px 20px;
+    margin: 10px;
+    background: var(--color2);
+    border-radius: 20px;
+}
+
+.submit-button {
+    width: auto;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    background: var(--color2);
+    border-radius: 50px;
+    display: flex;
+}

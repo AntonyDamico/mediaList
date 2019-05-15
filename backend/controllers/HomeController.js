@@ -1,8 +1,8 @@
 class HomeController {
 
-    homePage(req, res) {
-        res.send('hello');
+    static homePage(req, res) {
+        res.render('index');
     }
 }
 
-export default new HomeController();
+export default HomeController;
