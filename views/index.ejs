@@ -121,7 +121,7 @@
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
             <% showData.forEach(show =>{ %>
-                <a href="movie.html" class="movie-item">
+                <a href="/show/<%= show.id %>" class="movie-item">
                     <img src="<%= show.poster %>">
                     <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
                 </a>
@@ -136,7 +136,7 @@
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
 
             <% movieData.forEach(movie =>{ %>
-                <a href="movie.html" class="movie-item">
+                <a href="/movie/<%= movie.id %>" class="movie-item">
                     <img src="<%= movie.poster %>">
                     <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                 </a>

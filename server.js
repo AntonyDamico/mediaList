@@ -36,8 +36,8 @@ console.log(__dirname);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use('/', homeRouter);
-app.use('/api', movieDbRoutes, favoriteRoutes, ratingRoutes, mediaRoutes);
+app.use('/', homeRouter, mediaRoutes);
+app.use('/api', movieDbRoutes, favoriteRoutes, ratingRoutes);
 app.use('/api/list', listRoutes);
 
 

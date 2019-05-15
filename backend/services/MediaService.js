@@ -9,10 +9,16 @@ class ListService {
 
     static getTrending(media) {
         const mediaName = media === 'show' ? 'tv_' + media : media;
-        return knex(media)
+        return knex(mediaName)
             .where('language', 'en')
             .orderBy('vote_average', 'desc')
             .limit(7)
+    }
+
+    static getMedia(media, id) {
+        const mediaName = media === 'show' ? 'tv_' + media : media;
+        return knex(mediaName)
+            .where('id', id);
     }
 
     static buildTableName(media) {
