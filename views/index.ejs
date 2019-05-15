@@ -120,77 +120,32 @@
         <p class="title-content">Series:</p>
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie1.jpg">
-                <p class="movie-item-text">Forrest Gump <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie2.jpg">
-                <p class="movie-item-text">Dunkirk <br> 2017</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie3.jpg">
-                <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/show1.jpg">
-                <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie1.jpg">
-                <p class="movie-item-text">Forrest Gump <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie2.jpg">
-                <p class="movie-item-text">Dunkirk <br> 2017</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie3.jpg">
-                <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/show1.jpg">
-                <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-            </a>
+            <% showData.forEach(show =>{ %>
+                <a href="movie.html" class="movie-item">
+                    <img src="<%= show.poster %>">
+                    <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
+                </a>
+            <% }) %>
+
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
         </div>
+
+
         <p class="title-content">Tendencias:</p>
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie1.jpg">
-                <p class="movie-item-text">Forrest Gump <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie2.jpg">
-                <p class="movie-item-text">Dunkirk <br> 2017</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie3.jpg">
-                <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/show1.jpg">
-                <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie1.jpg">
-                <p class="movie-item-text">Forrest Gump <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie2.jpg">
-                <p class="movie-item-text">Dunkirk <br> 2017</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/movie3.jpg">
-                <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-            </a>
-            <a href="movie.html" class="movie-item">
-                <img src="media/img/show1.jpg">
-                <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-            </a>
+
+            <% movieData.forEach(movie =>{ %>
+                <a href="movie.html" class="movie-item">
+                    <img src="<%= movie.poster %>">
+                    <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
+                </a>
+            <% }) %>
+
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
         </div>
+
+
         <p class="title-content">Tendencias:</p>
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
@@ -234,6 +189,7 @@
 
 </div>
 <footer>
-    <p class="footer-text">2018 - Todos los derechos reservados - In The Movies</p>
+    <p class="footer-text">2019 - Todos los derechos reservados - In The Movies</p>
 </footer>
-</body></html>
+</body>
+</html>

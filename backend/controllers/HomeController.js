@@ -1,7 +1,11 @@
+import MediaService from '../services/MediaService';
+
 class HomeController {
 
-    static homePage(req, res) {
-        res.render('index');
+    static async homePage(req, res) {
+        const movieData = await MediaService.getTrending('movie');
+        const showData = await MediaService.getTrending('tv_show');
+        res.render('index', {movieData, showData});
     }
 }
 
