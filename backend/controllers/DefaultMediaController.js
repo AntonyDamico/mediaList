@@ -5,8 +5,9 @@ class DefaultMediaController {
     static async read(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
+        const userId = req.session.userId;
         const mediaType = req.params.media;
-        const data = await Service.getAll(mediaType, 1)
+        const data = await Service.getAll(mediaType, userId)
             .catch(err => Responses.failed(res, err));
 
         Responses.successful(res, data)
@@ -16,9 +17,10 @@ class DefaultMediaController {
     static async getById(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
+        const userId = req.session.userId;
         const mediaType = req.params.media;
         const mediaId = req.params.id;
-        const data = await Service.getById(mediaType, mediaId, 1,)
+        const data = await Service.getById(mediaType, mediaId, userId)
             .catch(err => Responses.failed(res, err));
 
         Responses.successful(res, data)
@@ -28,9 +30,10 @@ class DefaultMediaController {
     static async create(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
+        const userId = req.session.userId;
         const data = await Service.insert(
             req.params.media,
-            1,
+            userId,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
@@ -41,9 +44,10 @@ class DefaultMediaController {
     static async delete(req, res, Service) {
         DefaultMediaController.checkValidReq(req, res);
 
+        const userId = req.session.userId;
         await Service.delete(
             req.params.media,
-            1,
+            userId,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
 
@@ -52,6 +56,7 @@ class DefaultMediaController {
 
 
     static checkValidReq(req, res) {
+        if (!req.session.userId) res.redirect('/');
         if (!DefaultMediaController.isValidReq(req))
             Responses.failed(res, null, 'fix the url');
     }
