@@ -29,6 +29,10 @@
             <input type="password" name="password" placeholder="Contraseña:">
             <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
         </form>
+
+        <% if(message) {%>
+            <h4>Message <%= message %></h4>
+        <% } %>
     </div>
 </div>
 </body></html>
