@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <a href="index.html" class="header-logo"><img src="media/icons/Recurso%204.png"></a>
+        <a href="index.html" class="header-logo"><img src="/media/icons/Recurso%204.png"></a>
         <div class="buttons-family">
             <a href="login.html" class="header-button">Iniciar Sesión</a>
         </div>
@@ -26,10 +26,10 @@
             </div>
             <p class="sub-title">Necesitamos informacion para poder invadir tu privacidad :)</p>
             <form action="post" class="form">
-                <input type="text" name="name" placeholder="Nombre:">
-                <input type="email" name="email" placeholder="Correo:">
-                <input type="password" name="pass" placeholder="Contraseña:">
-                <input type="password" name="confirmpass" placeholder="Confirmar contraseña:">
+                <input type="text" name="name" placeholder="Nombre:" required>
+                <input type="email" name="email" placeholder="Correo:" required>
+                <input type="password" name="pass" placeholder="Contraseña:" required>
+                <input type="password" name="confirmpass" placeholder="Confirmar contraseña:" required>
                 <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
             </form>
         </div>
