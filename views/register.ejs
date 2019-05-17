@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/basic-style.css">
-    <link rel="stylesheet" href="/css/login-style.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <title>Registrarse</title>
-</head>
+<%- include partials/header.ejs %>
 
-<body>
-<header>
-    <a href="/" class="header-logo"><img src="/media/icons/Recurso%204.png"></a>
-    <div class="buttons-family">
-        <a href="/auth/login" class="header-button">Iniciar Sesión</a>
-    </div>
-</header>
+<link rel="stylesheet" href="/css/login-style.css">
+
+<%- include partials/navbar.ejs %>
+
 <div class="father-container">
     <div class="login-container">
         <div class="login-title-container">
@@ -34,4 +22,5 @@
         </form>
     </div>
 </div>
-</body></html>
+
+<%- include partials/footer.ejs %>
