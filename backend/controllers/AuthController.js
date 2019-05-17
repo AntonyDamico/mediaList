@@ -22,6 +22,22 @@ class AuthController {
     static registerPage(req, res) {
         res.render('register');
     }
+
+    static async register(req, res) {
+        const user = req.body.username;
+        const email = req.body.email;
+        const password = req.body.password;
+        const confirmPassword = req.body.confirmPassword;
+
+        if (password !== confirmPassword) {
+            res.redirect('/auth/register?message=las+contraseñas+deben+coincidir')
+            return;
+        }
+
+        const userData = await AuthService.register(user, email, password);
+
+        res.redirect('/');
+    }
 }
 
 export default AuthController;
