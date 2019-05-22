@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%- include partials/header.ejs %>
 
 <link rel="stylesheet" type="text/css" href="/css/movie-style.css">
@@ -7,9 +8,7 @@
 
 <div class="movie-container">
     <div class="movie-picture">
-        <center>
-            <img class="movie-img" src="<%= media.poster %>" alt="movie">
-        </center>
+        <img class="movie-img" src="<%= media.poster %>" alt="movie">
     </div>
     <div class="movie-content">
         <p class="movie-title"><%= media.title %></p>
@@ -23,122 +22,22 @@
                 </div>
             </div>
             <div class="box-button">
-                <div class="button">Direccion:</div>
+                <div class="button">Directores:</div>
                 <div class="button-info">
-                    <p>Anthony Russo, Joe Russo</p>
+                    <p>Anthony Russo</p>
+                    <p>Joe Russo</p>
                 </div>
             </div>
             <div class="box-button">
-                <div class="button">Produccion:</div>
+                <div class="button">Actores:</div>
                 <div class="button-info">
                     <p>Kevin Feige</p>
                 </div>
             </div>
             <div class="box-button">
-                <div class="button">Guion:</div>
+                <div class="button">Rating:</div>
                 <div class="button-info">
-                    <p>Christopher Markus</p>
-                    <p>Stephen McFeely</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Música:</div>
-                <div class="button-info">
-                    <p>Alan Silvestri</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Fotografía:</div>
-                <div class="button-info">
-                    <p>Trent Opaloch</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Montaje:</div>
-                <div class="button-info">
-                    <p>Jeffrey Ford</p>
-                    <p>Matthew Schmidt</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Vestuario:</div>
-                <div class="button-info">
-                    <p>Judianna Makovsky</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Protagonistas:</div>
-                <div class="button-info">
-                    <p>Robert Downey Jr.</p>
-                    <p>Chris Evans</p>
-                    <p>Mark Ruffalo</p>
-                    <p>Chris Hemsworth</p>
-                    <p>Scarlett Johansson</p>
-                    <p>Jeremy Renner</p>
-                    <p>Don Cheadle</p>
-                    <p>Paul Rudd</p>
-                    <p>Brie Larson</p>
-                    <p>Karen Gillan</p>
-                    <p>Bradley Cooper</p>
-                    <p>Gwyneth Paltrow</p>
-                    <p>Josh Brolin</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">País:</div>
-                <div class="button-info">
-                    <p>EEUU</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Año:</div>
-                <div class="button-info">
-                    <p>2019</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Estreno:</div>
-                <div class="button-info">
-                    <p>22 de abril de 2019 (Los Ángeles)</p>
-                    <p>26 de abril de 2019 (Estados Unidos)</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Genero:</div>
-                <div class="button-info">
-                    <p>Superhéroes</p>
-                    <p>Acción</p>
-                    <p>Ciencia ficción</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Duración:</div>
-                <div class="button-info">
-                    <p>181 minutos</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Clasificacion:</div>
-                <div class="button-info">
-                    <p>PG-13</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Idiomas:</div>
-                <div class="button-info">
-                    <p>Inglés</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Productora:</div>
-                <div class="button-info">
-                    <p>Marvel Studios</p>
-                </div>
-            </div>
-            <div class="box-button">
-                <div class="button">Distribución:</div>
-                <div class="button-info">
-                    <p>Walt Disney Studios Motion Pictures</p>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -190,7 +89,6 @@
 <script>
     var coll = document.getElementsByClassName("button");
     var i;
-
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
@@ -202,5 +100,4 @@
             }
         });
     }
-
 </script>

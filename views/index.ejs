@@ -1,85 +1,39 @@
+<!DOCTYPE html>
 <%- include partials/header.ejs %>
 
 <link rel="stylesheet" type="text/css" href="css/index-style.css">
+<link href="https://fonts.googleapis.com/css?family=Bevan&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<%- include partials/navbar.ejs %>
 
+
+<%- include partials/navbar-loged.ejs %>
+<div class="iniciar-menu-container">
+    <div class="iniciar-menu" id="menu-login" style="left: 100%;">
+        <p class="menu-login-title">Iniciar Sesión</p>
+        <form action="/auth/login" method="POST">
+            <input type="username" name="username" placeholder="Nombre de Usuario:">
+            <input type="password" name="password" placeholder="Contraseña:">
+            <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
+        </form>
+    </div>
+</div>
+<div class="iniciar-menu-container">
+    <div class="iniciar-menu" id="menu-register" style="left: 100%;">
+        <p class="menu-login-title">Registrarse</p>
+        <form action="/auth/register" method="POST">
+            <input type="text" name="username" placeholder="Nombre:">
+            <input type="email" name="email" placeholder="Correo:">
+            <input type="password" name="password" placeholder="Contraseña:">
+            <input type="password" name="confirmPassword" placeholder="Confirmar contraseña:">
+            <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
+        </form>
+    </div>
+</div>
 
 <div class="base-container">
-    <div class="panel">
-        <div class="ln-h"></div>
-        <div class="panel-items-container">
-            <a class="panel-button">Categorias:</a>
-            <div class="panel-content">
-                <ul>
-                    <li><a>Películas actuales</a></li>
-                    <li><a>Películas antiguas</a></li>
-                    <li><a>Estrenos</a></li>
-                    <li><a>Clásicos</a></li>
-                    <li><a>Accion</a></li>
-                    <li><a>Superhéroes</a></li>
-                    <li><a>Aventuras</a></li>
-                    <li><a>Comedias</a></li>
-                    <li><a>Drama</a></li>
-                    <li><a>Terror</a></li>
-                    <li><a>Suspenso</a></li>
-                    <li><a>Musicales</a></li>
-                    <li><a>Ciencia Ficción</a></li>
-                    <li><a>Guerra</a></li>
-                    <li><a>Crimen</a></li>
-                    <li><a>Infantiles</a></li>
-                    <li><a>Adultos</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="ln-h"></div>
-        <div class="panel-items-container">
-            <a class="panel-button">Edad:</a>
-            <div class="panel-content">
-                <ul>
-                    <li><a>6 años</a></li>
-                    <li><a>12 años</a></li>
-                    <li><a>16 años</a></li>
-                    <li><a>18 años</a></li>
-                    <li><a>21 años</a></li>
-                </ul>
-            </div>
-        </div>
 
-
-        <div class="ln-h"></div>
-        <div class="panel-items-container">
-            <a class="panel-button">Clasificacion:</a>
-            <div class="panel-content">
-                <ul>
-                    <% for(let i = 0; i < 5; i++){ %>
-                        <div class="panel-items-clas">
-                            <a href="#">
-                                <% for(let j = i; j < 5; j++) { %>
-                                    <img src="media/icons/Recurso%201.png">
-                                <% } %>
-                            </a>
-                        </div>
-                    <% } %>
-                </ul>
-            </div>
-        </div>
-
-
-        <div class="ln-h"></div>
-        <div class="panel-items-container">
-            <a class="panel-button">Año:</a>
-            <div class="panel-content">
-                <ul>
-                    <li><a>2010-Actualidad</a></li>
-                    <li><a>2000-2010</a></li>
-                    <li><a>1990-2000</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
+    <%- include partials/sidebar.ejs %>
 
     <div class="content">
         <p class="title-content">Series:</p>
@@ -88,7 +42,13 @@
             <% showData.forEach(show =>{ %>
                 <a href="/media/show/<%= show.id %>" class="movie-item">
                     <img src="<%= show.poster %>">
-                    <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
+                    <i class="far fa-heart icon-fav"></i>
+                    <!--Selecionado
+                    <i class="fas fa-heart icon-fav"></i>
+                    -->
+                    <div class="movie-item-text-container">
+                        <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
+                    </div>
                 </a>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
@@ -101,7 +61,13 @@
             <% movieData.forEach(movie =>{ %>
                 <a href="/media/movie/<%= movie.id %>" class="movie-item">
                     <img src="<%= movie.poster %>">
-                    <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
+                    <i class="far fa-heart icon-fav"></i>
+                    <!--Selecionado
+                    <i class="fas fa-heart icon-fav"></i>
+                    -->
+                    <div class="movie-item-text-container">
+                        <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
+                    </div>
                 </a>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
@@ -114,7 +80,13 @@
             <% movieData.forEach(movie =>{ %>
                 <a href="/media/movie/<%= movie.id %>" class="movie-item">
                     <img src="<%= movie.poster %>">
+                    <i class="far fa-heart icon-fav"></i>
+                    <!--Selecionado
+                    <i class="fas fa-heart icon-fav"></i>
+                    -->
+                    <div class="movie-item-text-container">
                     <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
+                </div>
                 </a>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
@@ -122,9 +94,60 @@
 
     </div>
 </div>
+
+
 <div class="information-container">
 
 </div>
+<script>
+    var buttonL = document.getElementById("SignIn");
+    var buttonR = document.getElementById("SignUp");
+    var menuL = document.getElementById("menu-login");
+    var menuR = document.getElementById("menu-register");
 
+    buttonL.addEventListener("click", function() {
+    if (menuL.style.left === "100%") {
+      menuL.style.left = "0%";
+      menuL.style.zIndex = "10";
+    } else {
+      menuL.style.left = "100%";
+      menuL.style.zIndex = "0";
+    }
+    if (menuR.style.left === "0%") {
+      menuR.style.left = "100%";
+      menuR.style.zIndex = "0";
+    }
+    });
+
+    buttonR.addEventListener("click", function() {
+    if (menuR.style.left === "100%") {
+      menuR.style.left = "0%";
+      menuR.style.zIndex = "10";
+    } else {
+      menuR.style.left = "100%";
+      menuR.style.zIndex = "0";
+    }
+    if (menuL.style.left === "0%") {
+      menuL.style.left = "100%";
+      menuL.style.zIndex = "0";
+    }
+    });
+
+</script>
+
+<script>
+    var panels = document.getElementsByClassName("panel-button");
+
+    for(var i=0; i<panels.length; i++){
+        panels[i].addEventListener("click", function(){
+            var content = this.nextElementSibling;
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        });
+    }
+</script>
 <%- include partials/footerBar.ejs %>
 <%- include partials/footer.ejs %>

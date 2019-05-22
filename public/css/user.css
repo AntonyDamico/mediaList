@@ -1,0 +1,88 @@
+::placeholder {
+	color: white;
+}
+
+.flex {
+	display: flex;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.half {
+	width: 50%;
+}
+
+.complete {
+	width: 100%;
+}
+
+.container-body {
+	padding: 0px 100px;
+	height: 100%;
+}
+
+.user-image-name {
+	justify-content: center;
+}
+
+.user-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 250px;
+	background: var(--color1);
+}
+
+form {
+	padding: 50px 20px;
+}
+
+.user-name {
+	padding: 0px 30px;
+}
+
+input {
+	background: var(--color1);
+	padding: 10px;
+	border-radius: 100px;
+	border: none;
+	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inputs-container {
+	flex-wrap: wrap;
+	padding: 0px 20px;
+	justify-content: space-between;
+}
+
+.inputs-container > input {
+	margin-top: 20px;
+	width: 45%;
+}
+
+.user-button {
+	border-radius: 10px 10px 0px 0px;
+	background: var(--color1);
+	margin-top: 20px;
+	padding: 10px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.content-button {
+	height: auto;
+	flex-wrap: wrap;
+}
+
+.check-option {
+	padding: 10px;
+	align-items: center;
+	background: var(--color1)
+}
+
+.check-option input {
+	margin: 0px 10px;
+}

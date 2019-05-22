@@ -11,7 +11,7 @@
 :root {
     --color1: #001E24;
     --color2: #00748A;
-    --color3: #20ACBF;
+    --color3: #052b33;
     --color4: #A1E7E8;
     --color5: #E6FFF8;
 }
@@ -102,17 +102,18 @@ header {
 }
 
 .header-button {
+    width: 150px;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 15px;
-    padding: 0px 30px;
     cursor: pointer;
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .header-button:hover {
-    background: #052b33;
+    background: var(--color3);
 }
 
 .header-collapse {
