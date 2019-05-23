@@ -9,6 +9,12 @@ class HomeController {
         const genres = await MediaService.getAllGenres();
         res.render('index', {movieData, showData, genres, isLoggedIn});
     }
+
+    static async filterMediaByGenre(req, res) {
+        const genreId = req.params.genreId;
+        const mediaData = await MediaService.filterByGenre(genreId);
+        res.status(200).send({mediaData})
+    }
 }
 
 export default HomeController;

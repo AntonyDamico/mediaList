@@ -1,7 +1,7 @@
-class ListService {
+class MediaService {
 
     static getAll(media, userId) {
-        const tableName = ListService.buildTableName(media);
+        const tableName = MediaService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;
 
         return knex(mediaName)
@@ -28,7 +28,15 @@ class ListService {
     static getAllGenres() {
         return knex('genre')
     }
+
+    static async filterByGenre(genreId) {
+        const movieData = await knex('movie')
+            .innerJoin('movie_genre', 'movie.id', '=', 'movie_genre.movie_id')
+            .where('genre_id', genreId)
+            .orderBy('vote_average', 'desc');
+        return movieData
+    }
 }
 
 
-export default ListService;
+export default MediaService;
