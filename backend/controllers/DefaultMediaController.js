@@ -3,7 +3,7 @@ import Responses from '../core/Responses'
 class DefaultMediaController {
 
     static async read(req, res, Service) {
-        DefaultMediaController.checkValidReq(req, res);
+        // DefaultMediaController.checkValidReq(req, res);
 
         const userId = req.session.userId;
         const mediaType = req.params.media;
@@ -56,7 +56,7 @@ class DefaultMediaController {
 
 
     static checkValidReq(req, res) {
-        if (!req.session.userId) res.redirect('/');
+        // if (!req.session.userId) res.redirect('/');
         if (!DefaultMediaController.isValidReq(req))
             Responses.failed(res, null, 'fix the url');
     }
