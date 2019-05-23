@@ -4,23 +4,9 @@
         <div class="panel-button">Categorias</div>
         <div class="panel-content" style="display: none;">
             <ul>
-                <li><a>Películas actuales</a></li>
-                <li><a>Películas antiguas</a></li>
-                <li><a>Estrenos</a></li>
-                <li><a>Clásicos</a></li>
-                <li><a>Accion</a></li>
-                <li><a>Superhéroes</a></li>
-                <li><a>Aventuras</a></li>
-                <li><a>Comedias</a></li>
-                <li><a>Drama</a></li>
-                <li><a>Terror</a></li>
-                <li><a>Suspenso</a></li>
-                <li><a>Musicales</a></li>
-                <li><a>Ciencia Ficción</a></li>
-                <li><a>Guerra</a></li>
-                <li><a>Crimen</a></li>
-                <li><a>Infantiles</a></li>
-                <li><a>Adultos</a></li>
+                <% genres.forEach(genre => {%>
+                    <li><a href="/filter/<%= genre.id %>"><%= genre.name %></a></li>
+                <%})%>
             </ul>
         </div>
     </div>

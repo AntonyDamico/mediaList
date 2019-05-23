@@ -25,6 +25,9 @@ class ListService {
         return media + '_watch_list';
     }
 
+    static getAllGenres() {
+        return knex('genre')
+    }
 }
 
 
