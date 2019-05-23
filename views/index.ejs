@@ -2,10 +2,15 @@
 
 <link rel="stylesheet" type="text/css" href="css/index-style.css">
 <link href="https://fonts.googleapis.com/css?family=Bevan&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
+<% if(isLoggedIn) { %>
+    <%- include partials/navbar-loged.ejs %>
+<% } else { %>
+    <%- include partials/navbar.ejs %>
+<% } %>
 
-<%- include partials/navbar-loged.ejs %>
 <div class="iniciar-menu-container">
     <div class="iniciar-menu" id="menu-login" style="left: 100%;">
         <p class="menu-login-title">Iniciar Sesión</p>
@@ -43,7 +48,7 @@
                     <i class="far fa-heart icon-fav"></i>
 
                     <!--<i class="fas fa-heart icon-fav"></i>-->
-                    
+
                     <div class="movie-item-text-container">
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
                     </div>
@@ -83,8 +88,8 @@
                     <i class="fas fa-heart icon-fav"></i>
                     -->
                     <div class="movie-item-text-container">
-                    <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
-                </div>
+                        <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
+                    </div>
                 </a>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
@@ -103,32 +108,32 @@
     var menuL = document.getElementById("menu-login");
     var menuR = document.getElementById("menu-register");
 
-    buttonL.addEventListener("click", function() {
-    if (menuL.style.left === "100%") {
-      menuL.style.left = "0%";
-      menuL.style.zIndex = "10";
-    } else {
-      menuL.style.left = "100%";
-      menuL.style.zIndex = "0";
-    }
-    if (menuR.style.left === "0%") {
-      menuR.style.left = "100%";
-      menuR.style.zIndex = "0";
-    }
+    buttonL.addEventListener("click", function () {
+        if (menuL.style.left === "100%") {
+            menuL.style.left = "0%";
+            menuL.style.zIndex = "10";
+        } else {
+            menuL.style.left = "100%";
+            menuL.style.zIndex = "0";
+        }
+        if (menuR.style.left === "0%") {
+            menuR.style.left = "100%";
+            menuR.style.zIndex = "0";
+        }
     });
 
-    buttonR.addEventListener("click", function() {
-    if (menuR.style.left === "100%") {
-      menuR.style.left = "0%";
-      menuR.style.zIndex = "10";
-    } else {
-      menuR.style.left = "100%";
-      menuR.style.zIndex = "0";
-    }
-    if (menuL.style.left === "0%") {
-      menuL.style.left = "100%";
-      menuL.style.zIndex = "0";
-    }
+    buttonR.addEventListener("click", function () {
+        if (menuR.style.left === "100%") {
+            menuR.style.left = "0%";
+            menuR.style.zIndex = "10";
+        } else {
+            menuR.style.left = "100%";
+            menuR.style.zIndex = "0";
+        }
+        if (menuL.style.left === "0%") {
+            menuL.style.left = "100%";
+            menuL.style.zIndex = "0";
+        }
     });
 
 </script>
@@ -136,8 +141,8 @@
 <script>
     var panels = document.getElementsByClassName("panel-button");
 
-    for(var i=0; i<panels.length; i++){
-        panels[i].addEventListener("click", function(){
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].addEventListener("click", function () {
             var content = this.nextElementSibling;
             if (content.style.display === "none") {
                 content.style.display = "block";

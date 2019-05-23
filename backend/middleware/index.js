@@ -10,7 +10,6 @@ class Middleware {
     isValidRequest(req, res, next) {
         if(Middleware.includesMovieOrShow(req)) return next();
         Responses.failed(res, null, 'fix the url');
-        // res.redirect('/auth/login')
     }
 
     static includesMovieOrShow(req) {
