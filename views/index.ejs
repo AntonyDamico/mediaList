@@ -23,15 +23,18 @@
             <% showData.forEach(show =>{ %>
                 <a href="/media/show/<%= show.id %>" class="movie-item">
                     <img src="<%= show.poster %>">
-                    <% if(isLoggedIn) { %>
-                        <%
-                        favoriteShows.forEach(favorite =>{
-                        if(favorite.id === show.id) {
-                        %>
-                            <i class="fas fa-heart icon-fav"></i>
-                        <% } else { %>
-                            <i class="far fa-heart icon-fav"></i>
-                        <% }}) %>
+
+                    <%
+                    favoriteShows.forEach(favorite =>{
+                    if(favorite.id === show.id) {
+                    %>
+                        <i class="fas fa-heart icon-fav"></i>
+                    <% } else { %>
+                        <i class="far fa-heart icon-fav"></i>
+                    <% }}) %>
+
+                    <% if(favoriteShows.length <= 0) { %>
+                        <i class="far fa-heart icon-fav"></i>
                     <% } %>
                     <div class="movie-item-text-container">
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
@@ -98,6 +101,13 @@
 <div class="information-container">
 
 </div>
+
+
+<script>
+    const hearts = document.querySelectorAll('.fa-heart')
+
+    hearts.forEach(heart => heart.querySelector('click', e => console.log(' bla')))
+</script>
 
 
 <%- include partials/footerBar.ejs %>

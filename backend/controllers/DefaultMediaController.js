@@ -28,7 +28,7 @@ class DefaultMediaController {
 
 
     static async create(req, res, Service) {
-        DefaultMediaController.checkValidReq(req, res);
+        // DefaultMediaController.checkValidReq(req, res);
 
         const userId = req.session.userId;
         const data = await Service.insert(
