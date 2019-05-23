@@ -11,9 +11,11 @@ class HomeController {
     }
 
     static async filterMediaByGenre(req, res) {
+        const isLoggedIn = req.session.userId !== undefined;
         const genreId = req.params.genreId;
         const mediaData = await MediaService.filterByGenre(genreId);
-        res.status(200).send({mediaData})
+        const genres = await MediaService.getAllGenres();
+        res.render('filter', {mediaData, isLoggedIn, genres})
     }
 }
 

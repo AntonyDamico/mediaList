@@ -55,3 +55,19 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    var panels = document.getElementsByClassName("panel-button");
+
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].addEventListener("click", function () {
+            var content = this.nextElementSibling;
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        });
+    }
+</script>

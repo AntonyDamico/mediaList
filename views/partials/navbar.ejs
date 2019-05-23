@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<link rel="stylesheet" type="text/css" href="/css/index-style.css">
+
 <header>
     <a href="/" class="header-logo"><img src="/media/icons/Recurso%204.png"></a>
     <input class="header-search" type="search" placeholder="Buscar...">
@@ -10,3 +12,50 @@
         <a href="#" class="header-button" id="SignUp">Registrarse</a>
     </div>
 </header>
+
+<div class="iniciar-menu-container">
+    <div class="iniciar-menu" id="menu-login" style="left: 100%;">
+        <p class="menu-login-title">Iniciar Sesión</p>
+        <form action="/auth/login" method="POST">
+            <input type="username" name="username" placeholder="Nombre de Usuario:">
+            <input type="password" name="password" placeholder="Contraseña:">
+            <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
+        </form>
+    </div>
+</div>
+<div class="iniciar-menu-container">
+    <div class="iniciar-menu" id="menu-register" style="left: 100%;">
+        <p class="menu-login-title">Registrarse</p>
+        <form action="/auth/register" method="POST">
+            <input type="text" name="username" placeholder="Nombre:">
+            <input type="email" name="email" placeholder="Correo:">
+            <input type="password" name="password" placeholder="Contraseña:">
+            <input type="password" name="confirmPassword" placeholder="Confirmar contraseña:">
+            <input type="submit" class="submit-button" name="submit-newuser" value="Continuar">
+        </form>
+    </div>
+</div>
+
+<script>
+    var buttonL = document.getElementById("SignIn");
+    var buttonR = document.getElementById("SignUp");
+    var menuL = document.getElementById("menu-login");
+    var menuR = document.getElementById("menu-register");
+
+    buttonL.addEventListener("click", function () {
+        if (menuL.style.left === "100%") {
+            menuL.style.left = "0%";
+            menuL.style.zIndex = "10";
+        } else {
+            menuL.style.left = "100%";
+            menuL.style.zIndex = "0";
+        }
+        if (menuR.style.left === "0%") {
+            menuR.style.left = "100%";
+            menuR.style.zIndex = "0";
+        }
+    });
+
+
+
+</script>

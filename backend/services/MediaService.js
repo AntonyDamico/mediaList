@@ -34,7 +34,11 @@ class MediaService {
             .innerJoin('movie_genre', 'movie.id', '=', 'movie_genre.movie_id')
             .where('genre_id', genreId)
             .orderBy('vote_average', 'desc');
-        return movieData
+        const showData = await knex('tv_show')
+            .innerJoin('show_genre', 'tv_show.id', '=', 'show_genre.show_id')
+            .where('genre_id', genreId)
+            .orderBy('vote_average', 'desc');
+        return Object.assign(movieData, showData);
     }
 }
 
