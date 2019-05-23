@@ -36,7 +36,7 @@ class AuthController {
 
         const userData = await AuthService.register(user, email, password);
 
-        res.redirect('/');
+        res.redirect('/auth/login');
     }
 
     static logout(req, res) {
