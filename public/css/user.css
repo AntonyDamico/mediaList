@@ -22,7 +22,9 @@
 
 .container-body {
 	padding: 0px 100px;
-	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .user-image-name {
@@ -33,22 +35,83 @@
 	width: 200px;
 	height: 200px;
 	border-radius: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: var(--color1);
+}
+
+.user-image img {
+	width: 90%;
+	height: 90%;
+	border-radius: 100%;
+	overflow: hidden;
+	transition: 0.2s;
 }
 
 form {
 	padding: 50px 20px;
+	width: 800px;
 }
 
 .user-name {
 	padding: 0px 30px;
+	display: flex;
+	justify-content: center;
 }
 
-input {
+.button-config {
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.button-config img {
+	width: 40px;
+	cursor: pointer;
 	background: var(--color1);
-	padding: 10px;
 	border-radius: 100px;
 	border: none;
+	padding: 5px;
+	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button-config-image {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	display: none;
+	transition: 0.2s;
+}
+
+.button-config-image img {
+	width: 40px;
+}
+
+.image-conatiner-config {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-conatiner-config:hover .user-image img{
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+.image-conatiner-config:hover .button-config-image{
+	display: block;
+}
+input[type="text"],
+input[type="submit"],
+p {
+	font-size: 16px;
+	background: var(--color1);
+	padding: 10px;
+	padding-left: 20px;
+	border-radius: 100px;
+	border: none;
+	width: 400px;
 	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -58,7 +121,9 @@ input {
 	justify-content: space-between;
 }
 
-.inputs-container > input {
+.inputs-container>input[type="text"],
+.inputs-container>input[type="submit"],
+.inputs-container>p {
 	margin-top: 20px;
 	width: 45%;
 }

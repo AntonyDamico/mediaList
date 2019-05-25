@@ -1,14 +1,21 @@
-.father-container {
-    width: 100%;
+header{
+    position: absolute;
+    z-index: 100;
+}
 
+.father-container {    
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 50px;
 }
 
 .login-container {
     background: var(--color1);
-    width: 600px;
+    width: 400px;
+    height: auto;
     padding: 40px;
 }
 
@@ -23,9 +30,13 @@
     font-size: 35px;
 }
 
-.sub-title{
+.sub-title {
     font-size: 15px;
     margin: 10px 0px;
+}
+
+form {
+    margin-top: 50px;
 }
 
 form input {

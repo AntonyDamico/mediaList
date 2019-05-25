@@ -1,14 +1,16 @@
 /*Header Buttons Collapse*/
-::placeholder{
-	color: white;
+::placeholder {
+    color: white;
 }
-.iniciar-menu-container{
-	position: absolute;
-	right: 0px;
+
+.iniciar-menu-container {
+    position: absolute;
+    right: 0px;
     width: 400px;
     height: auto;
     overflow: hidden;
 }
+
 .iniciar-menu {
     position: relative;
     padding: 20px;
@@ -19,24 +21,26 @@
     border-radius: 0px 0px 0px 10px;
 }
 
-.iniciar-menu input{
+.iniciar-menu input {
     width: 100%;
     padding: 10px;
-	border: none;
-	border-radius: 20px;
-	background: var(--color1);
-	color: white;
-	box-shadow: 5px 2px 4px rgba(0,0,0,0.5);
+    border: none;
+    border-radius: 20px;
+    background: var(--color1);
+    color: white;
+    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.iniciar-menu input + input{
+.iniciar-menu input+input {
     margin-top: 10px;
 }
-.menu-login-title{
-	font-size: 30px;
-	padding: 5px;
-	margin-bottom: 20px;
+
+.menu-login-title {
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
 }
+
 /*Content*/
 .base-container {
     display: flex;
@@ -82,7 +86,7 @@
     background: var(--color3);
 }
 
-li a{
+li a {
     width: 100%;
 }
 
@@ -95,8 +99,10 @@ li a{
 }
 
 .content {
-    width: 100%;;
+    width: 100%;
+    ;
 }
+
 /*Movie list*/
 .title-content {
     width: auto;
@@ -114,63 +120,65 @@ li a{
 }
 
 .movie-item {
-	position: relative;
-	width: 180px;
-	height: 300px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
+    position: relative;
+    width: 180px;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.icon-fav{
-	margin: 20px 10px;
-	position: absolute;
-  top: 0px;
-  right: 0px;
-	transition: 0.2s;
+.icon-fav {
+    margin: 20px 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.movie-item:hover img{
-	height: 85%;
+.movie-item:hover img {
+    height: 85%;
 }
 
-.movie-item:hover .icon-fav{
-	margin-top: 10px;
+.movie-item:hover .icon-fav {
+    margin-top: 10px;
 }
+
 .movie-item img {
     width: 180px;
     height: 80%;
-    box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
+    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
     transition: 0.2s;
 }
 
 .movie-item-text {
-	width: 100%;
-	white-space: nowrap;
+    width: 100%;
+    white-space: nowrap;
     overflow: hidden;
     text-align: center;
     font-size: 12px;
 }
 
-.movie-item-text-container{
-	width: 100%;
-	padding: 10px;
-	background: #292929;
-	border-radius: 0px 0px 10px 10px;
-	box-shadow: 4px 2px 2px rgba(0,0,0,0.5);
+.movie-item-text-container {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    background: #292929;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .movies-move-icon {
     display: flex;
     align-items: center;
     width: 50px;
+    z-index: 100;
 }
 
 .movies-move-icon img {
     width: 20px;
-    cursor: pointer;
     transition: 0.4s;
 }
 

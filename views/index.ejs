@@ -21,7 +21,7 @@
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
             <% showData.forEach(show =>{ %>
-                <a href="/media/show/<%= show.id %>" class="movie-item">
+                <div class="movie-item">
                     <img src="<%= show.poster %>">
 
                     <%
@@ -36,10 +36,10 @@
                     <% if(favoriteShows.length <= 0) { %>
                         <i class="far fa-heart icon-fav"></i>
                     <% } %>
-                    <div class="movie-item-text-container">
+                    <a href="/media/show/<%= show.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
         </div>
@@ -49,7 +49,7 @@
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
             <% movieData.forEach(movie =>{ %>
-                <a href="/media/movie/<%= movie.id %>" class="movie-item">
+                <div class="movie-item">
                     <img src="<%= movie.poster %>">
                     <% if(isLoggedIn) { %>
                         <%
@@ -61,10 +61,10 @@
                             <i class="far fa-heart icon-fav"></i>
                         <% }}) %>
                     <% } %>
-                    <div class="movie-item-text-container">
+                    <a href="/media/movie/<%= movie.id %>"  class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
         </div>
@@ -74,8 +74,9 @@
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
             <% movieData.forEach(movie =>{ %>
-                <a href="/media/movie/<%= movie.id %>" class="movie-item">
+                <div class="movie-item">
                     <img src="<%= movie.poster %>">
+                    
                     <% if(isLoggedIn) { %>
                         <%
                         favoriteMovies.forEach(favorite =>{
@@ -86,10 +87,10 @@
                             <i class="far fa-heart icon-fav"></i>
                         <% }}) %>
                     <% } %>
-                    <div class="movie-item-text-container">
+                    <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             <% }) %>
             <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
         </div>

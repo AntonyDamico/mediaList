@@ -20,24 +20,24 @@
 			<a href="#" class="header-button" id="SignUp">Registrarse</a>
 		</div>
 	</header>
-
+	
 	<div class="container-body">
-		<form>
+		<form action="post">
 
 			<div class="user-image-name flex">
-				<div>
+				<div class="image-conatiner-config">
 					<div class="user-image"><img src="https://www.digitalmusicnews.com/wp-content/uploads/2014/02/facebookface.jpg"></div>
+					<a class="button-config-image"><img src="media/icons/baseline_settings_white_48dp.png"></a>
 				</div>
 				<div class="user-name half center">
-					<p>Alias</p>
-					<a class="button-config"><img src="media/icons/baseline_settings_white_48dp.png"></a>
+					<input type="text" name="username" class="complete" placeholder="Alias">
 				</div>
 			</div>
 			<div class="inputs-container flex">
-				<p>Nombre</p>
-				<p>Apellido</p>
-				<p>Edad</p>
-				<p>Sexo</p>
+				<input type="text" name="username" placeholder="Nombre">
+				<input type="text" name="username" placeholder="Apellido">
+				<input type="text" name="username" placeholder="Edad">
+				<input type="text" name="username" placeholder="Sexo">
 			</div>
 			<div class="inputs-container">
 				<div class="user-button">
@@ -45,48 +45,65 @@
 				</div>
 				<div class="content-button flex" style="display: none;">
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Clasicos</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Accion</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Superhéroes</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Aventuras</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Comedias</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Drama</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Terror</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Suspenso</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Musicales</p>
 					</div>
-					<div class="check-option flex half"> 
+					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Ciencia Ficción</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Guerras</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Crimen</p>
 					</div>
 					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Infantiles</p>
 					</div>
-					<div class="check-option flex half">	
+					<div class="check-option flex half">
+						<input type="checkbox">
 						<p>Adultos</p>
 					</div>
 				</div>
+			</div>
+			<div class="inputs-container flex">
+				<input type="submit" class="submit-button" name="submit-newuser" value="Enviar">
 			</div>
 		</form>
 	</div>
