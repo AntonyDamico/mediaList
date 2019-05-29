@@ -1,6 +1,7 @@
 import MediaService from '../services/MediaService';
 import FavoritesService from '../services/FavoritesService';
 import GenreService from '../services/GenreService';
+import ListService from '../services/ListService';
 
 class HomeController {
 
@@ -10,7 +11,13 @@ class HomeController {
         const movieData = await MediaService.getTrending('movie');
         const showData = await MediaService.getTrending('tv_show');
         const genres = await GenreService.getAllGenres();
-        res.render('index', {movieData, showData, genres, favoriteMovies, favoriteShows});
+        const listMovies = await ListService.getAll('movie', req.session.userId);
+        const listShows = await ListService.getAll('show', req.session.userId);
+        console.log(listShows);
+        res.render('index', {
+            movieData, showData, genres, favoriteMovies, favoriteShows,
+            listMovies, listShows
+        });
     }
 
     static async filterMediaByGenre(req, res) {

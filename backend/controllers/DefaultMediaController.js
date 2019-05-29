@@ -34,7 +34,6 @@ class DefaultMediaController {
             userId,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
-        console.log(data)
         Responses.successful(res, data)
     }
 

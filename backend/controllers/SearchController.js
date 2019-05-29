@@ -1,5 +1,6 @@
 import SearchSevice from '../services/SearchService';
 import FavoritesService from "../services/FavoritesService";
+import ListService from "../services/ListService";
 
 class SearchController {
 
@@ -9,7 +10,8 @@ class SearchController {
         const mediaType = 'movie';
         const media = await SearchSevice.search(term);
         const favoriteMedia = await FavoritesService.getAll('movie', req.session.userId);
-        res.render('grid', {title, mediaType, media, favoriteMedia});
+        const listMedia = await ListService.getAll('movie', req.session.userId);
+        res.render('grid', {title, mediaType, media, favoriteMedia, listMedia});
     }
 
 }

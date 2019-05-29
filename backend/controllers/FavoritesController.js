@@ -1,5 +1,6 @@
 import FavoritesService from '../services/FavoritesService';
 import DefaultController from './DefaultMediaController';
+import ListService from "../services/ListService";
 
 
 class FavoritesController {
@@ -10,6 +11,7 @@ class FavoritesController {
         const mediaType = req.params.media;
         const media = await FavoritesService.getAll(mediaType, userId);
         const favoriteMedia = media;
+        const listMedia = await ListService.getAll('movie', req.session.userId);
         res.render('grid', {title, media, mediaType, favoriteMedia})
     }
 
