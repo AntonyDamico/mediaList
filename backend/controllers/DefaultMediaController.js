@@ -28,23 +28,18 @@ class DefaultMediaController {
 
 
     static async create(req, res, Service) {
-        // DefaultMediaController.checkValidReq(req, res);
-        console.log('hehhehhehehe 32');
         const userId = req.session.userId;
-        console.log(userId);
         const data = await Service.insert(
             req.params.media,
             userId,
             req.body.media_id
         ).catch(err => Responses.failed(res, err));
-
+        console.log(data)
         Responses.successful(res, data)
     }
 
 
     static async delete(req, res, Service) {
-        // DefaultMediaController.checkValidReq(req, res);
-        console.log('hello 46');
         const userId = req.session.userId;
         await Service.delete(
             req.params.media,
