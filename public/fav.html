@@ -26,13 +26,19 @@
 	</header>
 
 	<div class="text-container">
-		<p>Favoritos</p>
+		<p>Peliculas</p>
 	</div>
-	<div class="movies-container">
+	<div class="fav-movies-container">
 		<div class="movie-item">
 			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
 			<i class="far fa-heart icon-fav"></i>
+			<i class="far fa-clock icon-fav icon-time"></i>
+			<!--
+			<i class="fas fa-clock icon-fav icon-time"></i>
+			-->
+			<a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
+				<p class="movie-item-text"></p>
+			</a>
 			<a href="#" class="movie-item-text-container">
 				<p class="movie-item-text">Texto de Ejemplo</p>
 			</a>
@@ -88,54 +94,7 @@
 				<p class="movie-item-text">Texto de Ejemplo</p>
 			</a>
 		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
-		<div class="movie-item">
-			<img src="media/img/endgamejpg.jpg">
-			<i class="fas fa-heart icon-fav"></i>
-			<i class="far fa-heart icon-fav"></i>
-			<a href="#" class="movie-item-text-container">
-				<p class="movie-item-text">Texto de Ejemplo</p>
-			</a>
-		</div>
+
 		<div class="movie-item">
 			<img src="media/img/endgamejpg.jpg">
 			<i class="fas fa-heart icon-fav"></i>
@@ -161,5 +120,22 @@
 			</a>
 		</div>
 		<!--Destruir-->
+	</div>
+	<div class="text-container">
+		<p>Series</p>
+	</div>
+
+	<div class="fav-movies-container">
+		<div class="movie-item">
+			<img src="media/img/endgamejpg.jpg">
+			<i class="far fa-heart icon-fav"></i>
+			<i class="far fa-clock icon-fav icon-time"></i>
+			<!--
+			<i class="fas fa-clock icon-fav icon-time"></i>
+			-->
+			<a href="#" class="movie-item-text-container">
+				<p class="movie-item-text">Texto de Ejemplo</p>
+			</a>
+		</div>
 	</div>
 </body>

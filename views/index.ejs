@@ -68,6 +68,10 @@
                     %>
 
                     <i class="<%= isFavorite %> fa-heart icon-fav"></i>
+										<i class="far fa-clock icon-fav icon-time"></i>
+                  	<!--
+                   	<i class="fas fa-clock icon-fav icon-time"></i>
+                   	-->
                     <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                     </a>
