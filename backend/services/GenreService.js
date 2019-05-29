@@ -13,11 +13,11 @@ class GenreService {
             .innerJoin('movie_genre', 'movie.id', '=', 'movie_genre.movie_id')
             .where('genre_id', genreId)
             .orderBy('vote_average', 'desc')
-            .limit(2);
+            .limit(15);
         const showData = await knex('tv_show')
             .innerJoin('show_genre', 'tv_show.id', '=', 'show_genre.show_id')
             .where('genre_id', genreId)
-            .orderBy('vote_average', 'desc').limit(2);
+            .orderBy('vote_average', 'desc').limit(15);
         return GenreService.mergeMedia(movieData, showData);
     }
 

@@ -20,7 +20,8 @@ class MediaController {
         const listMediaSMovie = await ListService.getById('movie', req.session.userId, id);
         const listMedia = listMediaShow.concat(listMediaSMovie);
         const favoriteMedia = favoriteMediaShow.concat(favoriteMediaMovie);
-        res.render('media', {media: mediaData[0], favoriteMedia, listMedia, mediaType: media})
+        const trending = await MediaService.getTrending('movie', 7);
+        res.render('media', {media: mediaData[0], favoriteMedia, listMedia, mediaType: media, trending})
     }
 
 }

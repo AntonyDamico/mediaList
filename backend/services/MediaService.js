@@ -7,14 +7,14 @@ class MediaService {
         return knex(mediaName)
     }
 
-    static getTrending(media) {
+    static getTrending(media, limit=50) {
         const mediaName = media === 'show' ? 'tv_' + media : media;
         return knex(mediaName)
             .where('language', 'en')
             .where('release_date', '>', '2000-01-01')
             .orderBy('vote_average', 'desc')
             // .where('vote_average', '>', '8')
-            .limit(50)
+            .limit(limit)
     }
 
     static getMedia(media, id) {

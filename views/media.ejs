@@ -9,14 +9,15 @@
 
 <div class="movie-container">
     <div class="movie-picture">
-        <img class="movie-img" src="<%= media.poster %>" alt="movie" style="height: 90%; width: auto; margin-left: 190px; margin-top: 30px;">
+        <img class="movie-img" src="<%= media.poster %>" alt="movie"
+             style="height: 90%; width: auto; margin-left: 190px; margin-top: 30px;">
     </div>
     <div class="movie-content">
         <p class="movie-title"><%= media.title %></p>
         <div class="ln-h"></div>
         <!--<p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora corrupti-->
-            <!--rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita-->
-            <!--delectus, maxime optio distinctio sed.</p>-->
+        <!--rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita-->
+        <!--delectus, maxime optio distinctio sed.</p>-->
         <div class="details-container">
             <div class="box-button">
                 <div class="button">Lenguaje:</div>
@@ -72,10 +73,13 @@
 <div class="content">
     <p class="title-content">Sugerencias:</p>
     <div class="movies-container">
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie1.jpg">
-            <p class="movie-item-text">Forrest Gump <br> 1994</p>
-        </a></div>
+        <% trending.forEach(media => { %>
+            <a href="/media/show/<%= media.id %>" class="movie-item">
+                <img src="<%= media.poster %>">
+                <p class="movie-item-text"><%= media.title %><br><%= media.release_date.getFullYear() %></p>
+            </a>
+        <% }) %>
+    </div>
 </div>
 
 <%- include partials/footer.ejs %>

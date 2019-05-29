@@ -13,14 +13,15 @@ class AuthController {
         const password = req.body.password;
         const userData = await AuthService.login(user, password);
 
-        if (!userData[0]) res.redirect('/auth/login?message=usuario+o+password+equivocados');
+        if (!userData[0]) res.redirect('/auth/login?message=usuario+o+clave+equivocados');
 
         req.session.userId = userData[0].id;
         res.redirect('/');
     }
 
     static registerPage(req, res) {
-        res.render('register');
+        let message = req.query.message;
+        res.render('register', {message});
     }
 
     static async register(req, res) {
@@ -29,8 +30,11 @@ class AuthController {
         const password = req.body.password;
         const confirmPassword = req.body.confirmPassword;
 
+        if (!AuthController.validateEmail(email)) res.redirect('/auth/register?message=correo+no+valido');
+
+        if(!AuthController.validatePassword(password)) res.redirect('/auth/register?message=la+clave+debe+tener+por+lo+menos+una+letra+mayúscula+una+minúscula+y+un+número')
         if (password !== confirmPassword) {
-            res.redirect('/auth/register?message=las+contraseñas+deben+coincidir')
+            res.redirect('/auth/register?message=las+contraseñas+deben+coincidir');
             return;
         }
 
@@ -42,6 +46,16 @@ class AuthController {
     static logout(req, res) {
         req.session.destroy();
         res.redirect('/');
+    }
+
+    static validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    static validatePassword(password) {
+        const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        return re.test(String(password));
     }
 }
 
