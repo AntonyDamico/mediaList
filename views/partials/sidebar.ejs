@@ -1,26 +1,12 @@
 <div class="panel">
-        
+
     <div class="panel-items-container">
         <div class="panel-button">Categorias</div>
         <div class="panel-content" style="display: none;">
             <ul>
-                <% genres.forEach(genre => {%>
+                <% genres.forEach(genre => { %>
                     <li><a href="/filter/<%= genre.id %>"><%= genre.name %></a></li>
-                <%})%>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="panel-items-container">
-        <div class="panel-button">Edad</div>
-        <div class="panel-content" style="display: none;">
-            <ul>
-                <li><a>6 años</a></li>
-                <li><a>12 años</a></li>
-                <li><a>16 años</a></li>
-                <li><a>18 años</a></li>
-                <li><a>21 años</a></li>
+                <% }) %>
             </ul>
         </div>
     </div>
@@ -48,9 +34,9 @@
         <div class="panel-button">Año</div>
         <div class="panel-content" style="display: none;">
             <ul>
-                <li><a>2010-Actualidad</a></li>
-                <li><a>2000-2010</a></li>
-                <li><a>1990-2000</a></li>
+                <li><a href="/year/filter?start=2011">2011-Actualidad</a></li>
+                <li><a href="/year/filter?start=2000&end=2010">2000-2010</a></li>
+                <li><a href="/year/filter?end=1999">Atrás-1999</a></li>
             </ul>
         </div>
     </div>

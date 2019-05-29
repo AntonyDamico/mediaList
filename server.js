@@ -9,7 +9,8 @@ import session from 'express-session';
 
 import {
     homeRouter, movieDbRoutes, listRoutes, favoriteRoutes,
-    ratingRoutes, mediaRoutes, authRoutes, searchRoutes
+    ratingRoutes, mediaRoutes, authRoutes, searchRoutes,
+    yearRoutes
 } from './backend/routes';
 
 const app = express();
@@ -46,7 +47,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
-app.use('/', homeRouter, searchRoutes);
+app.use('/', homeRouter, searchRoutes, yearRoutes);
 app.use('/media', mediaRoutes);
 app.use('/api', movieDbRoutes, favoriteRoutes, ratingRoutes);
 app.use('/api/list', listRoutes);

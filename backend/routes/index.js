@@ -6,8 +6,10 @@ import ratingRoutes from './ratingRoutes';
 import mediaRoutes from './mediaRoutes';
 import authRoutes from './authRoutes';
 import searchRoutes from './searchRoutes';
+import yearRoutes from './yearFilterRoutes'
 
 export {
     homeRouter, movieDbRoutes, listRoutes, favoriteRoutes,
-    ratingRoutes, mediaRoutes, authRoutes, searchRoutes
+    ratingRoutes, mediaRoutes, authRoutes, searchRoutes,
+    yearRoutes
 }

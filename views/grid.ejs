@@ -38,7 +38,7 @@
             <i class="<%= isWatched %> fa-clock icon-fav icon-time"></i>
 
             <a href="/media/<%= media.mediaType + '/' + media.id %>" class="movie-item-text-container">
-                <p class="movie-item-text"><%= media.title %></p>
+                <p class="movie-item-text"><%= media.title %><br> <%= media.release_date.getFullYear() %></p>
             </a>
         </div>
 

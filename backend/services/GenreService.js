@@ -23,7 +23,6 @@ class GenreService {
 
 
     static mergeMedia(movies, shows) {
-        console.log(movies)
         movies.forEach(elem => {
             elem['mediaType'] = 'movie';
             elem.id = elem['movie_id']
