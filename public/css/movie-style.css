@@ -9,6 +9,7 @@
 .movie-picture {
     width: 50%;
     background: var(--color1);
+		position: relative;
 }
 
 .movie-content{
@@ -50,4 +51,22 @@
 .details-container{
     display: flex;
     flex-wrap: wrap;
+}
+
+.icon-time-movie{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 30px;
+}
+
+.fas , .far{
+	cursor: pointer;
+}
+
+.icon-fav-movie{
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	padding: 30px;
 }

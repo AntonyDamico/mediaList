@@ -2,8 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/index-style.css">
 <link href="https://fonts.googleapis.com/css?family=Bevan&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 <%- include partials/navbar-loged.ejs %>
 
@@ -35,7 +34,10 @@
                     %>
 
                     <i class="<%= isFavorite %> fa-heart icon-fav"></i>
-
+										<i class="far fa-clock icon-fav icon-time"></i>
+                  	<!--
+                   	<i class="fas fa-clock icon-fav icon-time"></i>
+                   	-->
                     <a href="/media/show/<%= show.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
                     </a>
@@ -66,6 +68,10 @@
                     %>
 
                     <i class="<%= isFavorite %> fa-heart icon-fav"></i>
+										<i class="far fa-clock icon-fav icon-time"></i>
+                  	<!--
+                   	<i class="fas fa-clock icon-fav icon-time"></i>
+                   	-->
                     <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                     </a>

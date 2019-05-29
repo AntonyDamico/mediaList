@@ -41,9 +41,13 @@
 	margin-bottom: 20px;
 }
 
+body{
+	min-height: 100vh;
+}
 /*Content*/
 .base-container {
 	display: flex;
+	height: 100%;
 }
 
 .panel {
@@ -130,7 +134,7 @@ li a {
 	justify-content: center;
 }
 
-.icon-fav {
+.icon-fav{
 	margin: 20px 10px;
 	position: absolute;
 	top: 0px;
@@ -139,16 +143,16 @@ li a {
 	transition: 0.2s;
 }
 
+.icon-time{
+	top: 20px;
+}
+
 .movie-item:hover img {
 	height: 85%;
 }
 
-.movie-item:hover .icon-fav {
-	margin-top: 10px;
-}
-
 .movie-item img {
-	width: 180px;
+	width: 100%;
 	height: 80%;
 	box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
 	transition: 0.2s;
@@ -189,6 +193,8 @@ li a {
 
 /*Footer*/
 footer {
+	position: absolute;
+	bottom: 0px;
 	width: 100%;
 	height: 40px;
 	background: #1c1c1c;
