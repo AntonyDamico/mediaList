@@ -9,7 +9,7 @@ import session from 'express-session';
 
 import {
     homeRouter, movieDbRoutes, listRoutes, favoriteRoutes,
-    ratingRoutes, mediaRoutes, authRoutes
+    ratingRoutes, mediaRoutes, authRoutes, searchRoutes
 } from './backend/routes';
 
 const app = express();
@@ -34,7 +34,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 7200000 }
+    cookie: {maxAge: 7200000}
 }));
 
 app.set('views', __dirname + '/views');
@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
-app.use('/', homeRouter);
+app.use('/', homeRouter, searchRoutes);
 app.use('/media', mediaRoutes);
 app.use('/api', movieDbRoutes, favoriteRoutes, ratingRoutes);
 app.use('/api/list', listRoutes);

@@ -5,11 +5,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<% if(isLoggedIn) { %>
-    <%- include partials/navbar-loged.ejs %>
-<% } else { %>
-    <%- include partials/navbar.ejs %>
-<% } %>
+<%- include partials/navbar-loged.ejs %>
 
 
 <div class="base-container">
@@ -56,7 +52,7 @@
             current = 0;
             movieData.forEach(movie =>{
                 current++;
-            if(current < 7 &&  movie['vote_average'] > 7) { %>
+            if(current < 7 && movie['vote_average'] > 7) { %>
                 <div class="movie-item movie" id="<%= movie.id %>">
                     <img src="<%= movie.poster %>">
 
