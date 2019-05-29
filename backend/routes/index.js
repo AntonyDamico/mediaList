@@ -5,8 +5,9 @@ import favoriteRoutes from './favoriteRoutes';
 import ratingRoutes from './ratingRoutes';
 import mediaRoutes from './mediaRoutes';
 import authRoutes from './authRoutes';
+import searchRoutes from './searchRoutes';
 
 export {
     homeRouter, movieDbRoutes, listRoutes, favoriteRoutes,
-    ratingRoutes, mediaRoutes, authRoutes
+    ratingRoutes, mediaRoutes, authRoutes, searchRoutes
 }

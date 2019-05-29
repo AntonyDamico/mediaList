@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <header>
     <a href="/" class="header-logo"><img src="/media/icons/Recurso%204.png"></a>
-    <input class="header-search" type="search" placeholder="Buscar...">
+    <form action='/search'>
+        <input name='searchTerm' class="header-search" type="search" placeholder="Buscar...">
+    </form>
     <a href="#" class="header-search-icon">
         <img src="/media/icons/baseline_search_white_18dp.png">
     </a>
     <div class="buttons-family">
-    	<a href="#" class="header-button">Perfil</a>
+        <a href="#" class="header-button">Perfil</a>
         <a href="/api/movie/favorites/show" class="header-button">Favoritos</a>
         <a href="/auth/logout" class="header-button">Cerrar Sesiòn</a>
     </div>
