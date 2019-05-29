@@ -20,7 +20,12 @@
         <p class="title-content">Series:</p>
         <div class="movies-container">
             <!--<a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>-->
-            <% showData.forEach(show =>{ %>
+            <%
+            let current = 0;
+            showData.forEach(show =>{
+                current++;
+            if(current < 7) {
+            %>
                 <div class="movie-item show" id="<%= show.id %>">
                     <img src="<%= show.poster %>">
 
@@ -39,7 +44,7 @@
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
                     </a>
                 </div>
-            <% }) %>
+            <% }}) %>
             <!--<a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>-->
         </div>
 
@@ -47,7 +52,11 @@
         <p class="title-content">Tendencias:</p>
         <div class="movies-container">
             <!--<a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>-->
-            <% movieData.forEach(movie =>{ %>
+            <%
+            current = 0;
+            movieData.forEach(movie =>{
+                current++;
+            if(current < 7 &&  movie['vote_average'] > 7) { %>
                 <div class="movie-item movie" id="<%= movie.id %>">
                     <img src="<%= movie.poster %>">
 
@@ -65,10 +74,9 @@
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                     </a>
                 </div>
-            <% }) %>
+            <% }}) %>
             <!--<a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>-->
         </div>
-
 
 
     </div>
