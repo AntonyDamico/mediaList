@@ -13,7 +13,6 @@ class HomeController {
         const genres = await GenreService.getAllGenres();
         const listMovies = await ListService.getAll('movie', req.session.userId);
         const listShows = await ListService.getAll('show', req.session.userId);
-        console.log(listShows);
         res.render('index', {
             movieData, showData, genres, favoriteMovies, favoriteShows,
             listMovies, listShows
@@ -28,7 +27,6 @@ class HomeController {
         const favoriteMovies = await FavoritesService.getAll('movie', req.session.userId);
         const favoriteShows = await FavoritesService.getAll('show', req.session.userId);
         const genre = await GenreService.getById(genreId);
-        console.log(genre);
         const title = 'Género: ' + genre[0].name;
         res.render('grid', {title, media, genres, favoriteMovies, favoriteShows, mediaType})
     }

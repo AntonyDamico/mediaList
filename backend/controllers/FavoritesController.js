@@ -12,7 +12,7 @@ class FavoritesController {
         const media = await FavoritesService.getAll(mediaType, userId);
         const favoriteMedia = media;
         const listMedia = await ListService.getAll('movie', req.session.userId);
-        res.render('grid', {title, media, mediaType, favoriteMedia})
+        res.render('grid', {title, media, mediaType, favoriteMedia, listMedia})
     }
 
 
@@ -21,6 +21,7 @@ class FavoritesController {
     }
 
     static async add(req, res) {
+        console.log('favorites controller')
         await DefaultController.create(req, res, FavoritesService)
     }
 

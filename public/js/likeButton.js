@@ -12,7 +12,7 @@ document.querySelectorAll('.fa-heart').forEach(media => media.addEventListener('
         action = 'delete'
     }
     doPost(media, mediaId, baseUrl + action, action, e.target)
-        .catch(e => console.log('error'))
+        .catch(e => console.log('error', e))
 }));
 
 async function doPost(media, mediaId, url, action, heart) {
@@ -26,6 +26,7 @@ async function doPost(media, mediaId, url, action, heart) {
 async function post(media, media_id, url, action) {
     console.log(media_id);
     const method = action === 'add' ? 'POST' : 'DELETE';
+    console.log(method);
     const data = await fetch(url, {
             method,
             body: JSON.stringify({media_id}),
