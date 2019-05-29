@@ -1,0 +1,26 @@
+<%- include partials/header.ejs %>
+<link rel="stylesheet" href="/css/index-style.css">
+<link rel="stylesheet" href="/css/fav-style.css">
+
+
+<%- include partials/navbar-loged.ejs %>
+
+<div class="text-container">
+    <p><%= title %></p>
+</div>
+<div class="movies-container">
+
+    <% media.forEach(media => { %>
+        <div class="movie-item">
+            <img src="<%= media.poster %>">
+            <i class="fas fa-heart icon-fav"></i>
+            <i class="far fa-heart icon-fav"></i>
+            <a href="/media/<%= mediaType + '/' + media.id %>" class="movie-item-text-container">
+                <p class="movie-item-text"><%= media.title %></p>
+            </a>
+        </div>
+
+    <% }) %>
+
+</div>
+</body>

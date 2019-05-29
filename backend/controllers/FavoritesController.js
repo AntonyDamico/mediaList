@@ -4,6 +4,15 @@ import DefaultController from './DefaultMediaController';
 
 class FavoritesController {
 
+    static async showAll(req, res) {
+        const title = 'Favoritos';
+        const userId = req.session.userId;
+        const mediaType = req.params.media;
+        const media = await FavoritesService.getAll(mediaType, userId);
+        res.render('grid', {title, media, mediaType})
+    }
+
+
     static async getAll(req, res) {
         await DefaultController.read(req, res, FavoritesService)
     }
