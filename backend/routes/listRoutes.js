@@ -4,11 +4,16 @@ import middleware from '../middleware'
 
 const router = express.Router();
 
-
 router.get(
     '/:media',
-    [middleware.isValidRequest, middleware.isLoggedIn],
+    middleware.isLoggedIn,
     ListController.showList
+);
+
+router.get(
+    '/:media/show',
+    middleware.isLoggedIn,
+    ListController.showAll
 );
 
 router.post('/:media/insert', ListController.addToList);

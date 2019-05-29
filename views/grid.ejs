@@ -15,8 +15,6 @@
     <% media.forEach(media => { %>
         <div class="movie-item <%= mediaType %>" id="<%= media.id %>">
             <img src="<%= media.poster %>">
-            <!--<i class="fas fa-heart icon-fav"></i>-->
-            <!--<i class="fas fa-heart icon-fav"></i>-->
 
             <%
                 let isFavorite = 'far';
@@ -32,14 +30,13 @@
             <%
                 let isWatched = 'far';
                 listMedia.forEach(list => {
-                    if (list['movie_id'] === media.id) {
+                    if (list['movie_id'] === media.id || list['show_id'] === media.id) {
                         isWatched = 'fas'
                     }
                 })
             %>
 
             <i class="<%= isWatched %> fa-clock icon-fav icon-time"></i>
-
 
             <a href="/media/<%= mediaType + '/' + media.id %>" class="movie-item-text-container">
                 <p class="movie-item-text"><%= media.title %></p>
