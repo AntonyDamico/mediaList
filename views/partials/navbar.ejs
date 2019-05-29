@@ -51,4 +51,18 @@
             menuR.style.zIndex = "0";
         }
     });
+
+    buttonR.addEventListener("click", function () {
+        if (menuR.style.left === "100%") {
+            menuR.style.left = "0%";
+            menuR.style.zIndex = "10";
+        } else {
+            menuR.style.left = "100%";
+            menuR.style.zIndex = "0";
+        }
+        if (menuL.style.left === "0%") {
+            menuL.style.left = "100%";
+            menuL.style.zIndex = "0";
+        }
+    });
 </script>

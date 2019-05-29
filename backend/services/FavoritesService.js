@@ -18,6 +18,7 @@ class FavoritesService {
 
 
     static delete(media, userId, mediaId) {
+
         const tableName = FavoritesService.buildTableName(media);
         const whereObj = FavoritesService.getOperationsObj(media, userId, mediaId);
         return knex(tableName)

@@ -42,8 +42,8 @@ class DefaultMediaController {
 
 
     static async delete(req, res, Service) {
-        DefaultMediaController.checkValidReq(req, res);
-
+        // DefaultMediaController.checkValidReq(req, res);
+        console.log('hello 46');
         const userId = req.session.userId;
         await Service.delete(
             req.params.media,

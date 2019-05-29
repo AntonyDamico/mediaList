@@ -21,21 +21,20 @@
         <div class="movies-container">
             <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
             <% showData.forEach(show =>{ %>
-                <div class="movie-item">
+                <div class="movie-item show" id="<%= show.id %>">
                     <img src="<%= show.poster %>">
 
                     <%
-                    favoriteShows.forEach(favorite =>{
-                    if(favorite.id === show.id) {
+                        let isFavorite = 'far';
+                        favoriteShows.forEach(favorite => {
+                            if (favorite.id === show.id) {
+                                isFavorite = 'fas'
+                            }
+                        })
                     %>
-                        <i class="fas fa-heart icon-fav"></i>
-                    <% } else { %>
-                        <i class="far fa-heart icon-fav"></i>
-                    <% }}) %>
 
-                    <% if(favoriteShows.length <= 0) { %>
-                        <i class="far fa-heart icon-fav"></i>
-                    <% } %>
+                    <i class="<%= isFavorite %> fa-heart icon-fav"></i>
+
                     <a href="/media/show/<%= show.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= show.title %><br> <%= show.release_date.getFullYear() %></p>
                     </a>
@@ -61,7 +60,7 @@
                             <i class="far fa-heart icon-fav"></i>
                         <% }}) %>
                     <% } %>
-                    <a href="/media/movie/<%= movie.id %>"  class="movie-item-text-container">
+                    <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                     </a>
                 </div>
@@ -76,7 +75,7 @@
             <% movieData.forEach(movie =>{ %>
                 <div class="movie-item">
                     <img src="<%= movie.poster %>">
-                    
+
                     <% if(isLoggedIn) { %>
                         <%
                         favoriteMovies.forEach(favorite =>{
@@ -104,12 +103,12 @@
 </div>
 
 
-<script>
-    const hearts = document.querySelectorAll('.fa-heart')
+<!--<script>-->
+<!--const hearts = document.querySelectorAll('.fa-heart')-->
 
-    hearts.forEach(heart => heart.querySelector('click', e => console.log(' bla')))
-</script>
+<!--hearts.forEach(heart => heart.querySelector('click', e => console.log(' bla')))-->
+<!--</script>-->
 
-
+<script src="js/likeButton.js"></script>
 <%- include partials/footerBar.ejs %>
 <%- include partials/footer.ejs %>
