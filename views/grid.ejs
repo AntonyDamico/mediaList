@@ -10,12 +10,11 @@
 <div class="text-container">
     <p><%= title %></p>
 </div>
-<div class="movies-container">
+<div class="search-movies-container">
 
     <% media.forEach(media => { %>
         <div class="movie-item <%= mediaType %>" id="<%= media.id %>">
             <img src="<%= media.poster %>">
-
             <%
                 let isFavorite = 'far';
                 favoriteMedia.forEach(favorite => {

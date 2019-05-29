@@ -120,6 +120,7 @@ li a {
 .movies-container {
 	padding: 20px 50px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 }
@@ -144,7 +145,7 @@ li a {
 }
 
 .icon-time{
-	top: 20px;
+	right: 20px;
 }
 
 .movie-item:hover img {
@@ -205,4 +206,12 @@ footer {
 
 .footer-text {
 	color: #838383;
+}
+
+.search-movies-container{
+	padding: 20px 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
 }
