@@ -3,8 +3,9 @@
 
 <link rel="stylesheet" type="text/css" href="/css/movie-style.css">
 <link rel="stylesheet" type="text/css" href="/css/index-style.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<%- include partials/navbar-loged.ejs%>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<%- include partials/navbar-loged.ejs %>
 
 <div class="movie-container">
     <div class="movie-picture">
@@ -13,7 +14,9 @@
     <div class="movie-content">
         <p class="movie-title"><%= media.title %></p>
         <div class="ln-h"></div>
-        <p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora corrupti rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita delectus, maxime optio distinctio sed.</p>
+        <p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora corrupti
+            rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita
+            delectus, maxime optio distinctio sed.</p>
         <div class="details-container">
             <div class="box-button">
                 <div class="button">Lenguaje:</div>
@@ -41,16 +44,28 @@
                 </div>
             </div>
         </div>
-        <!--
-        <i class="fas fa-heart fa-2x"></i>
-        
-        <i class="fas fa-clock fa-2x"></i>
-        -->
-        <div class="icon-fav-movie">
-        	<i class="far fa-heart fa-2x"></i>
+
+        <%
+        let isFavorite = 'far';
+        favoriteMedia.forEach(favorite => {
+            if (favorite.id === media.id) {
+                isFavorite = 'fas'
+            }
+        })
+
+        let isWatched = 'far';
+        listMedia.forEach(list => {
+            if (list['movie_id'] === media.id || list['show_id'] === media.id) {
+                isWatched = 'fas'
+            }
+        })
+        %>
+
+        <div class="icon-fav-movie <%= mediaType %>" id="<%= media.id %>">
+            <i class="<%= isFavorite %> fa-heart fa-2x"></i>
         </div>
-        <div class="icon-time-movie">
-        	<i class="far fa-clock fa-2x"></i>
+        <div class="icon-time-movie <%= mediaType %>" id="<%= media.id %>">
+            <i class="<%= isWatched %> fa-clock fa-2x"></i>
         </div>
     </div>
 </div>
@@ -96,12 +111,14 @@
 
 <%- include partials/footer.ejs %>
 
+<script src="/js/likeButton.js"></script>
+<script src="/js/watchedButton.js"></script>
 
 <script>
     var coll = document.getElementsByClassName("button");
     var i;
     for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
+        coll[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
             if (content.style.display === "block") {

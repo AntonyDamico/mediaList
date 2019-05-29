@@ -1,6 +1,7 @@
 console.log('this is from the like button')
 document.querySelectorAll('.fa-heart').forEach(media => media.addEventListener('click', e => {
     const mediaElement = e.target.parentElement;
+    console.log(mediaElement);
     const mediaId = mediaElement.id;
     const media = mediaElement.classList.contains('movie') ? 'movie' : 'show';
     let baseUrl = '/api/' + media + '/favorites/';
@@ -24,6 +25,7 @@ async function doPost(media, mediaId, url, action, heart) {
 }
 
 async function post(media, media_id, url, action) {
+    console.log('media id', media_id);
     console.log(media_id);
     const method = action === 'add' ? 'POST' : 'DELETE';
     console.log(method);

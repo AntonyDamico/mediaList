@@ -1,5 +1,15 @@
 class ListService {
 
+    static getById(media, userId, mediaId) {
+        const tableName = ListService.buildTableName(media);
+        const mediaName = media === 'show' ? 'tv_' + media : media;
+
+        return knex(mediaName)
+            .innerJoin(tableName, `${tableName}.${media}_id`, '=', `${mediaName}.id`)
+            .where('user_id', userId)
+            .where(media + '_id', mediaId);
+    }
+
     static getAll(media, userId) {
         const tableName = ListService.buildTableName(media);
         const mediaName = media === 'show' ? 'tv_' + media : media;

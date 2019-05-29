@@ -1,4 +1,4 @@
-console.log('this is from the Watched button')
+console.log('this is from the Watched button');
 document.querySelectorAll('.fa-clock').forEach(media => media.addEventListener('click', e => {
     const mediaElement = e.target.parentElement;
     const mediaId = mediaElement.id;
@@ -11,21 +11,21 @@ document.querySelectorAll('.fa-clock').forEach(media => media.addEventListener('
     } else {
         action = 'delete'
     }
-    doPost(media, mediaId, baseUrl + action, action, e.target)
+    doPostWatched(media, mediaId, baseUrl + action, action, e.target)
         .catch(e => console.log('error' + e))
 }));
 
-async function doPost(media, mediaId, url, action, icon) {
-    const res = await post(media, mediaId, url, action);
+async function doPostWatched(media, mediaId, url, action, icon) {
+    const res = await postWatched(media, mediaId, url, action);
     if (res) {
         icon.classList.toggle('far');
         icon.classList.toggle('fas')
     }
 }
 
-async function post(media, media_id, url, action) {
+async function postWatched(media, media_id, url, action) {
     const method = action === 'insert' ? 'POST' : 'DELETE';
-    console.log(url);
+    console.log(method);
     const data = await fetch(url, {
             method,
             body: JSON.stringify({media_id}),
