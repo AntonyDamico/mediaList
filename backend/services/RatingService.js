@@ -88,11 +88,11 @@ class RatingService {
     static mergeMedia(movies, shows) {
         movies.forEach(elem => {
             elem['mediaType'] = 'movie';
-            elem.id = elem['movie_id']
+            // elem.id = elem['movie_id']
         });
         shows.forEach(elem => {
             elem['mediaType'] = 'show';
-            elem.id = elem['show_id'];
+            // elem.id = elem['show_id'];
         });
         return movies.concat(shows);
     }

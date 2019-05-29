@@ -18,7 +18,7 @@
             <%
                 let isFavorite = 'far';
                 favoriteMedia.forEach(favorite => {
-                    if (favorite.id === media['movie_id'] || favorite.id === media['show_id']) {
+                    if (favorite.id === media['movie_id'] || favorite.id === media['show_id'] || favorite.id == media.id) {
                         isFavorite = 'fas'
                     }
                 })
@@ -29,7 +29,7 @@
             <%
                 let isWatched = 'far';
                 listMedia.forEach(list => {
-                    if (list['movie_id'] === media.id || list['show_id'] === media.id) {
+                    if (list['movie_id'] === media.id || list['show_id'] === media.id || list.id == media.id) {
                         isWatched = 'fas'
                     }
                 })

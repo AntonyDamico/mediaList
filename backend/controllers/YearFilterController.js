@@ -24,6 +24,7 @@ class YearFilterController {
         const favoriteMedia = await YearFilterController.mergeMedia(FavoritesService.getAll, userId);
         const listMedia = await YearFilterController.mergeMedia(ListService.getAll, userId);
 
+        console.log(favoriteMedia);
         res.render('grid', {title, media, favoriteMedia, listMedia})
     }
 
@@ -32,11 +33,11 @@ class YearFilterController {
         const shows = await serviceMethod('show', userId);
         movies.forEach(elem =>{
             elem['mediaType'] = 'movie';
-            elem.id = elem['movie_id']
+            // elem.id = elem['movie_id']
         });
         shows.forEach(elem => {
             elem['mediaType'] = 'show';
-            elem.id = elem['show_id'];
+            // elem.id = elem['show_id'];
         });
         return movies.concat(shows);
     }

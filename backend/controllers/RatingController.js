@@ -39,14 +39,8 @@ class RatingController {
     static async mergeMedia(serviceMethod, userId) {
         const movies = await serviceMethod('movie', userId);
         const shows = await serviceMethod('show', userId);
-        movies.forEach(elem => {
-            elem['mediaType'] = 'movie';
-            elem.id = elem['movie_id']
-        });
-        shows.forEach(elem => {
-            elem['mediaType'] = 'show';
-            elem.id = elem['show_id'];
-        });
+        movies.forEach(elem => elem['mediaType'] = 'movie');
+        shows.forEach(elem => elem['mediaType'] = 'show');
         return movies.concat(shows);
     }
 }

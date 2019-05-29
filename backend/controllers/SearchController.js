@@ -16,6 +16,7 @@ class SearchController {
         const listMovie = await ListService.getAll('movie', req.session.userId);
         const listShow = await ListService.getAll('movie', req.session.userId);
         const listMedia = SearchController.mergeMedia(listMovie, listShow);
+        console.log(favoriteMedia);
         res.render('grid', {title, media, favoriteMedia, listMedia});
     }
 
