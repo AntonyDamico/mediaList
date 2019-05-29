@@ -19,7 +19,7 @@
     <div class="content">
         <p class="title-content">Series:</p>
         <div class="movies-container">
-            <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
+            <!--<a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>-->
             <% showData.forEach(show =>{ %>
                 <div class="movie-item show" id="<%= show.id %>">
                     <img src="<%= show.poster %>">
@@ -40,59 +40,36 @@
                     </a>
                 </div>
             <% }) %>
-            <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
+            <!--<a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>-->
         </div>
 
 
         <p class="title-content">Tendencias:</p>
         <div class="movies-container">
-            <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
+            <!--<a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>-->
             <% movieData.forEach(movie =>{ %>
-                <div class="movie-item">
+                <div class="movie-item movie" id="<%= movie.id %>">
                     <img src="<%= movie.poster %>">
-                    <% if(isLoggedIn) { %>
-                        <%
-                        favoriteMovies.forEach(favorite =>{
-                        if(favorite.id === movie.id) {
-                        %>
-                            <i class="fas fa-heart icon-fav"></i>
-                        <% } else { %>
-                            <i class="far fa-heart icon-fav"></i>
-                        <% }}) %>
-                    <% } %>
+
+                    <%
+                        let isFavorite = 'far';
+                        favoriteMovies.forEach(favorite => {
+                            if (favorite.id === movie.id) {
+                                isFavorite = 'fas'
+                            }
+                        })
+                    %>
+
+                    <i class="<%= isFavorite %> fa-heart icon-fav"></i>
                     <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
                         <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
                     </a>
                 </div>
             <% }) %>
-            <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
+            <!--<a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>-->
         </div>
 
 
-        <p class="title-content">Tendencias:</p>
-        <div class="movies-container">
-            <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
-            <% movieData.forEach(movie =>{ %>
-                <div class="movie-item">
-                    <img src="<%= movie.poster %>">
-
-                    <% if(isLoggedIn) { %>
-                        <%
-                        favoriteMovies.forEach(favorite =>{
-                        if(favorite.id === movie.id) {
-                        %>
-                            <i class="fas fa-heart icon-fav"></i>
-                        <% } else { %>
-                            <i class="far fa-heart icon-fav"></i>
-                        <% }}) %>
-                    <% } %>
-                    <a href="/media/movie/<%= movie.id %>" class="movie-item-text-container">
-                        <p class="movie-item-text"><%= movie.title %><br> <%= movie.release_date.getFullYear() %></p>
-                    </a>
-                </div>
-            <% }) %>
-            <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
-        </div>
 
     </div>
 </div>

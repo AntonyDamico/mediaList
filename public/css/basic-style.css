@@ -1,3 +1,8 @@
+@font-face {
+	src: url(fonts/KomikaTitle.ttf);
+	font-family: KomikaTitle;
+}
+
 * {
     box-sizing: border-box;
     padding: 0px;

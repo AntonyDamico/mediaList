@@ -1,5 +1,4 @@
 console.log('this is from the like button')
-
 document.querySelectorAll('.fa-heart').forEach(media => media.addEventListener('click', e => {
     const mediaElement = e.target.parentElement;
     const mediaId = mediaElement.id;
@@ -25,7 +24,8 @@ async function doPost(media, mediaId, url, action, heart) {
 }
 
 async function post(media, media_id, url, action) {
-    const method = action === 'add' ? 'POST' : 'DELETE'
+    console.log(url);
+    const method = action === 'add' ? 'POST' : 'DELETE';
     const data = await fetch(url, {
             method,
             body: JSON.stringify({media_id}),
@@ -34,6 +34,7 @@ async function post(media, media_id, url, action) {
             }
         }
     )
+    console.log(data);
     const dataJson = await data.json();
     return dataJson.message === 'Request Successful'
 }
