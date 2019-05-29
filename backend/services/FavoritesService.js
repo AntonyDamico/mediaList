@@ -11,7 +11,6 @@ class FavoritesService {
 
 
     static insert(media, userId, mediaId) {
-        console.log('hello');
         const tableName = FavoritesService.buildTableName(media);
         const insertObj = FavoritesService.getOperationsObj(media, userId, mediaId);
         console.log(insertObj);

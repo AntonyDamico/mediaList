@@ -5,7 +5,7 @@ import middleware from '../middleware'
 const router = express.Router();
 
 
-router.get('/:media/favorites/movie', middleware.isLoggedIn ,FavoritesController.showAll);
+router.get('/:media/favorites', middleware.isLoggedIn ,FavoritesController.showAll);
 router.get('/:media/favorites', FavoritesController.getAll);
 router.post('/:media/favorites/add', FavoritesController.add);
 router.delete('/:media/favorites/delete', FavoritesController.remove);

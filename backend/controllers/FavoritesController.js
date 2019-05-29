@@ -8,11 +8,17 @@ class FavoritesController {
     static async showAll(req, res) {
         const title = 'Favoritos';
         const userId = req.session.userId;
-        const mediaType = req.params.media;
-        const media = await FavoritesService.getAll(mediaType, userId);
+        // const mediaType = req.params.media;
+        // const mediaMovie = await FavoritesService.getAll('movie', userId);
+        // const mediaShow = await FavoritesService.getAll('show', userId);
+        // const media = FavoritesController.mergeMedia(mediaMovie, mediaShow);
+        const media = await FavoritesController.mergeMedia(FavoritesService.getAll, userId);
         const favoriteMedia = media;
-        const listMedia = await ListService.getAll('movie', req.session.userId);
-        res.render('grid', {title, media, mediaType, favoriteMedia, listMedia})
+        // const listMediaMovie = await ListService.getAll('movie', userId);
+        // const listMediaShow = await ListService.getAll('show', userId);
+        // const listMedia = FavoritesController.mergeMedia(listMediaShow, listMediaMovie);
+        const listMedia = await FavoritesController.mergeMedia(ListService.getAll, userId);
+        res.render('grid', {title, media, favoriteMedia, listMedia})
     }
 
 
@@ -21,12 +27,20 @@ class FavoritesController {
     }
 
     static async add(req, res) {
-        console.log('favorites controller')
         await DefaultController.create(req, res, FavoritesService)
     }
 
     static async remove(req, res) {
         await DefaultController.delete(req, res, FavoritesService)
+    }
+
+
+   static async mergeMedia(serviceMethod, userId) {
+        const movies = await serviceMethod('movie', userId);
+        const shows = await serviceMethod('show', userId);
+        movies.forEach(elem => elem['mediaType'] = 'movie');
+        shows.forEach(elem => elem['mediaType'] = 'show');
+       return movies.concat(shows);
     }
 }
 

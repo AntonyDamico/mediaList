@@ -22,14 +22,34 @@ class HomeController {
     static async filterMediaByGenre(req, res) {
         const mediaType = 'movie';
         const genreId = req.params.genreId;
-        const media = await GenreService.filterByGenre(genreId);
+        const media = await GenreService.filterByGenre(genreId, 'movie');
+        // const searchResultShow= await GenreService.filterByGenre(genreId, 'show');
+        // const media = HomeController.mergeMedia(searchResultMovie, searchResultShow);
+
         const genres = await GenreService.getAllGenres();
+
         const favoriteMovies = await FavoritesService.getAll('movie', req.session.userId);
-        const favoriteShows = await FavoritesService.getAll('show', req.session.userId);
+        const favoriteShows = await FavoritesService.getAll('show', req.session.userId);;
+        const favoriteMedia = HomeController.mergeMedia(favoriteMovies, favoriteShows);
+
         const genre = await GenreService.getById(genreId);
         const title = 'Género: ' + genre[0].name;
-        res.render('grid', {title, media, genres, favoriteMovies, favoriteShows, mediaType})
+        const listMovies = await ListService.getAll('movie', req.session.userId);
+        const listShows = await ListService.getAll('show', req.session.userId);
+        const listMedia = HomeController.mergeMedia(listMovies, listShows);
+
+        res.render('grid', {title, media, genres, favoriteMedia, listMedia, mediaType});
     }
+
+
+    static mergeMedia(movies, shows) {
+        movies.forEach(elem => elem['mediaType'] = 'movie');
+        shows.forEach(elem => elem['mediaType'] = 'show');
+        return movies.concat(shows);
+    }
+
+
+
 }
 
 export default HomeController;

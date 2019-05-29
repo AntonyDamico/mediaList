@@ -8,16 +8,31 @@ class GenreService {
         return knex('genre')
     }
 
-    static async filterByGenre(genreId) {
+    static async filterByGenre(genreId, mediaType) {
         const movieData = await knex('movie')
             .innerJoin('movie_genre', 'movie.id', '=', 'movie_genre.movie_id')
             .where('genre_id', genreId)
-            .orderBy('vote_average', 'desc');
+            .orderBy('vote_average', 'desc')
+            .limit(2);
         const showData = await knex('tv_show')
             .innerJoin('show_genre', 'tv_show.id', '=', 'show_genre.show_id')
             .where('genre_id', genreId)
-            .orderBy('vote_average', 'desc');
-        return Object.assign(movieData, showData);
+            .orderBy('vote_average', 'desc').limit(2);
+        return GenreService.mergeMedia(movieData, showData);
+    }
+
+
+    static mergeMedia(movies, shows) {
+        console.log(movies)
+        movies.forEach(elem => {
+            elem['mediaType'] = 'movie';
+            elem.id = elem['movie_id']
+        });
+        shows.forEach(elem => {
+            elem['mediaType'] = 'show';
+            elem.id = elem['show_id'];
+        });
+        return movies.concat(shows);
     }
 }
 

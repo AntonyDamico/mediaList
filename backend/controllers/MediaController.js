@@ -14,7 +14,6 @@ class MediaController {
         const media = req.params.media;
         const id = req.params.id;
         const mediaData = await MediaService.getMedia(media, id);
-        console.log(mediaData[0])
         const favoriteMediaShow = await FavoritesService.getAll('show', req.session.userId);
         const listMediaShow = await ListService.getById('show', req.session.userId, id);
         const favoriteMediaMovie = await FavoritesService.getAll('movie', req.session.userId);

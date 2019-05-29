@@ -9,14 +9,14 @@
 
 <div class="movie-container">
     <div class="movie-picture">
-        <img class="movie-img" src="<%= media.poster %>" alt="movie">
+        <img class="movie-img" src="<%= media.poster %>" alt="movie" style="height: 90%; width: auto; margin-left: 190px; margin-top: 30px;">
     </div>
     <div class="movie-content">
         <p class="movie-title"><%= media.title %></p>
         <div class="ln-h"></div>
-        <p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora corrupti
-            rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita
-            delectus, maxime optio distinctio sed.</p>
+        <!--<p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora corrupti-->
+            <!--rerum enim ad dolores, deserunt voluptate voluptatem recusandae hic, iure quis consequatur fuga, expedita-->
+            <!--delectus, maxime optio distinctio sed.</p>-->
         <div class="details-container">
             <div class="box-button">
                 <div class="button">Lenguaje:</div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="box-button">
-                <div class="button">Rating:</div>
+                <div class="button">Rating: <%= media.vote_average %></div>
                 <div class="button-info">
                     <p></p>
                 </div>
@@ -72,41 +72,10 @@
 <div class="content">
     <p class="title-content">Sugerencias:</p>
     <div class="movies-container">
-        <a class="movies-move-icon"><img src="media/icons/Recurso%203.png"></a>
         <a href="movie.html" class="movie-item">
             <img src="media/img/movie1.jpg">
             <p class="movie-item-text">Forrest Gump <br> 1994</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie2.jpg">
-            <p class="movie-item-text">Dunkirk <br> 2017</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie3.jpg">
-            <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/show1.jpg">
-            <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie1.jpg">
-            <p class="movie-item-text">Forrest Gump <br> 1994</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie2.jpg">
-            <p class="movie-item-text">Dunkirk <br> 2017</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/movie3.jpg">
-            <p class="movie-item-text">Pulp Fiction <br> 1994</p>
-        </a>
-        <a href="movie.html" class="movie-item">
-            <img src="media/img/show1.jpg">
-            <p class="movie-item-text">Games Of Thrones <br> 2011</p>
-        </a>
-        <a class="movies-move-icon"><img src="media/icons/Recurso%202.png"></a>
-    </div>
+        </a></div>
 </div>
 
 <%- include partials/footer.ejs %>
