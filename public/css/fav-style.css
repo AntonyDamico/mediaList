@@ -1,0 +1,18 @@
+.movies-container {
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-top: 0px;
+}
+
+.movie-item {
+	margin: 0px 1%;
+}
+
+.text-container {
+	padding: 10px 110px;
+	font-size: 50px;
+}
+
+.text-container p {
+	font-family: KomikaTitle;
+}
