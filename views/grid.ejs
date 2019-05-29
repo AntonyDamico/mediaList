@@ -15,8 +15,20 @@
     <% media.forEach(media => { %>
         <div class="movie-item <%= mediaType %>" id="<%= media.id %>">
             <img src="<%= media.poster %>">
-            <!--<i class="fas fa-heart icon-fav"></i>-->
-            <i class="fas fa-heart icon-fav"></i>
+                <!--<i class="fas fa-heart icon-fav"></i>-->
+                <!--<i class="fas fa-heart icon-fav"></i>-->
+
+                <%
+                    let isFavorite = 'far';
+                    favoriteMedia.forEach(favorite => {
+                        if (favorite.id === media.id) {
+                            isFavorite = 'fas'
+                        }
+                    })
+                %>
+
+                <i class="<%= isFavorite %> fa-heart icon-fav"></i>
+
             <a href="/media/<%= mediaType + '/' + media.id %>" class="movie-item-text-container">
                 <p class="movie-item-text"><%= media.title %></p>
             </a>

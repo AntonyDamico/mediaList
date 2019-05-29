@@ -9,7 +9,8 @@ class FavoritesController {
         const userId = req.session.userId;
         const mediaType = req.params.media;
         const media = await FavoritesService.getAll(mediaType, userId);
-        res.render('grid', {title, media, mediaType})
+        const favoriteMedia = media;
+        res.render('grid', {title, media, mediaType, favoriteMedia})
     }
 
 
